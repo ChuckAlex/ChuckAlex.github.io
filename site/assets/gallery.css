@@ -1,0 +1,91 @@
+.research-gallery { min-width:0; color:var(--ink,#243648); }
+.research-gallery .gallery-anchor { display:block; scroll-margin-top:88px; }
+.research-gallery .gallery-stage {
+  display:grid; grid-template-rows:minmax(0,1fr) 120px;
+  height:clamp(330px,31vw,410px); width:100%; min-width:0;
+  background:#f2f5f5; border:1px solid #dce4e7; overflow:hidden;
+}
+.research-gallery .gallery-screen { position:relative; min-width:0; min-height:0; background:#f2f5f5; }
+.research-gallery .gallery-screen video,
+.research-gallery .gallery-screen .gallery-poster {
+  display:block; width:100%; height:100%; max-width:100%; max-height:100%;
+  object-fit:contain; object-position:center; margin:0; background:#f2f5f5;
+}
+.research-gallery .gallery-detail {
+  display:grid; grid-template-columns:minmax(0,1fr) auto; align-content:center; gap:2px 16px;
+  padding:12px 17px; border-top:1px solid #dce4e7; min-width:0; background:#fff;
+}
+.research-gallery .gallery-eyebrow { grid-column:1; margin:0; color:var(--muted,#5c6c7a); font-size:12px; line-height:1.4; }
+.research-gallery .gallery-title { grid-column:1; margin:1px 0 0; font-size:18px; line-height:1.25; font-weight:600; overflow-wrap:anywhere; }
+.research-gallery .gallery-scene { grid-column:1; margin:2px 0 0; color:var(--muted,#5c6c7a); font-size:14px; line-height:1.5; }
+.research-gallery .gallery-project { grid-column:2; grid-row:1 / span 3; align-self:center; font-size:14px; text-align:right; line-height:1.5; color:var(--navy,#173d59); }
+.research-gallery[data-orientation="portrait"] .gallery-stage { grid-template-rows:minmax(0,1fr); grid-template-columns:minmax(0,1fr) 152px; }
+.research-gallery[data-orientation="portrait"] .gallery-detail { display:flex; flex-direction:column; justify-content:center; align-items:flex-start; gap:10px; padding:19px 16px; border-top:0; border-left:1px solid #dce4e7; }
+.research-gallery[data-orientation="portrait"] .gallery-title { font-size:20px; line-height:1.35; }
+.research-gallery[data-orientation="portrait"] .gallery-scene { margin:0; font-size:15px; }
+.research-gallery[data-orientation="portrait"] .gallery-project { text-align:left; }
+.research-gallery .gallery-rail { margin-top:10px; border-bottom:1px solid var(--line,#dce4e7); }
+.research-gallery .scene-choices { display:grid; grid-template-columns:repeat(5,minmax(0,1fr)); gap:5px; min-width:0; }
+.research-gallery .scene-choice { display:flex; flex-direction:column; gap:5px; align-items:flex-start; justify-content:flex-start; min-width:0; min-height:75px; box-sizing:border-box; padding:9px 7px; border-bottom:2px solid transparent; color:var(--muted,#5c6c7a); text-decoration:none; font-size:14px; font-weight:500; line-height:1.4; overflow-wrap:anywhere; }
+.research-gallery .scene-number { font-size:12px; font-variant-numeric:tabular-nums; color:var(--muted,#5c6c7a); }
+.research-gallery .scene-choice[aria-selected="true"],.research-gallery .scene-choice[data-active="true"] { border-bottom-color:var(--navy,#173d59); color:var(--navy,#173d59); background:#f1f5f7; }
+.research-gallery .scene-choice:hover { background:#f3f6f7; }
+.research-gallery .gallery-playback { display:flex; align-items:center; justify-content:space-between; gap:12px; min-height:46px; padding:5px 0; }
+.research-gallery .gallery-position { font-size:13px; color:var(--muted,#5c6c7a); font-variant-numeric:tabular-nums; }
+.research-gallery .scene-toggle { display:inline-flex; align-items:center; justify-content:center; gap:7px; min-height:38px; padding:6px 10px; border:1px solid #bccbd4; border-radius:2px; background:#fff; color:var(--navy,#173d59); font:500 14px/1.4 "Segoe UI","Microsoft YaHei",sans-serif; cursor:pointer; }
+.research-gallery .scene-toggle-icon { display:inline-block; min-width:13px; font-size:13px; }
+.research-gallery .scene-toggle:focus-visible,.research-gallery .scene-choice:focus-visible,.research-gallery video:focus-visible { outline:3px solid #578bb5; outline-offset:2px; }
+.research-gallery [hidden] { display:none !important; }
+.research-gallery .gallery-status,.research-gallery .gallery-nojs { font-size:14px; color:var(--muted,#5c6c7a); margin:7px 0 0; }
+.research-gallery .gallery-status:empty { display:none; }
+@media(max-width:960px) {
+ .research-gallery .gallery-stage { height:340px; }
+ .research-gallery .gallery-detail { gap:2px 8px; padding:10px 12px; }
+ .research-gallery .scene-choice { padding-inline:5px; }
+ .research-gallery[data-orientation="portrait"] .gallery-stage { grid-template-columns:minmax(0,1fr) 130px; }
+ .research-gallery[data-orientation="portrait"] .gallery-detail { padding:14px 12px; }
+}
+@media(max-width:680px) {
+ .research-gallery .gallery-anchor { scroll-margin-top:108px; }
+ .research-gallery .gallery-stage { height:360px; }
+ .research-gallery .gallery-detail { grid-template-columns:minmax(0,1fr) 104px; }
+ .research-gallery .gallery-title { font-size:18px; }
+ .research-gallery .gallery-scene { font-size:14px; }
+ .research-gallery .scene-choice { min-height:81px; padding:8px 5px; }
+ .research-gallery[data-orientation="portrait"] .gallery-stage { grid-template-columns:minmax(0,1fr) 126px; }
+ .research-gallery[data-orientation="portrait"] .gallery-detail { padding:14px 11px; }
+ .research-gallery[data-orientation="portrait"] .gallery-title { font-size:18px; }
+}
+@media(max-width:370px) {
+ .research-gallery .gallery-stage { height:340px; }
+ .research-gallery[data-orientation="portrait"] .gallery-stage { grid-template-columns:minmax(0,1fr) 116px; }
+ .research-gallery .scene-choice { font-size:13px; }
+}
+@media(prefers-reduced-motion:reduce) { .research-gallery * { scroll-behavior:auto; } }
+
+/* English scene names retain whole words on narrow screens. Chinese stays in one row. */
+@media (max-width: 680px) {
+  .research-gallery:lang(en) .scene-choices {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 5px;
+  }
+  .research-gallery:lang(en) .scene-choice {
+    min-height: 70px;
+    gap: 2px;
+    padding: 7px 6px;
+    font-size: 14px;
+    overflow-wrap: normal;
+    word-break: normal;
+    hyphens: none;
+  }
+  .research-gallery:lang(en) .scene-label {
+    overflow-wrap: normal;
+    word-break: normal;
+    hyphens: none;
+  }
+}
+@media (max-width: 350px) {
+  .research-gallery:lang(en) .scene-choices {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}

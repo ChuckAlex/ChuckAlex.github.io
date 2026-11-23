@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="800" viewBox="0 0 1440 800" role="img" aria-labelledby="stage2_predictor-title stage2_predictor-desc" lang="zh-Hans">
+<title id="stage2_predictor-title">阶段二 · 当前观测潜动作预测器</title>
+<desc id="stage2_predictor-desc">仅凭当前图像学习Teacher离散标签，再通过码向量期望构造连续先验。 自回归发生在两个码槽之间，不沿机器人动作时间轴展开。 双槽NLL用于训练P；期望运算构造策略先验，不增加连续先验回归损失。 P训练使用当前UMI图像；阶段三用当前Robot图像生成策略先验。</desc>
+<defs>
+<marker id="arrow-data" viewBox="0 0 10 10" markerWidth="8" markerHeight="8" refX="9" refY="5" orient="auto-start-reverse" markerUnits="strokeWidth"><polygon points="0,0 10,5 0,10" fill="#345B80"/></marker>
+<marker id="arrow-predictor" viewBox="0 0 10 10" markerWidth="8" markerHeight="8" refX="9" refY="5" orient="auto-start-reverse" markerUnits="strokeWidth"><polygon points="0,0 10,5 0,10" fill="#70568F"/></marker>
+<marker id="arrow-supervision" viewBox="0 0 10 10" markerWidth="8" markerHeight="8" refX="9" refY="5" orient="auto-start-reverse" markerUnits="strokeWidth"><polygon points="0,0 10,5 0,10" fill="#A87531"/></marker>
+</defs>
+<style>text{font-family:Arial,"Microsoft YaHei","Noto Sans CJK SC",sans-serif;fill:#1D2A39} .stage-title{font-size:29px;font-weight:600} .stage-subtitle{font-size:17px;fill:#566476} .node-title{font-size:18px;font-weight:600} .node-body{font-size:16px;fill:#455368} .edge-label{font-size:14px;fill:#59677A} .footer{font-size:16px;fill:#455368}</style>
+<rect width="1440" height="800" fill="#FFFFFF"/>
+<text class="stage-title" x="40" y="58">阶段二 · 当前观测潜动作预测器</text>
+<text class="stage-subtitle" x="40" y="96">仅凭当前图像学习Teacher离散标签，再通过码向量期望构造连续先验。</text>
+<path id="s2-e01" data-from="s2-current-views" data-to="s2-predictor" data-source="s2-current-views" data-target="s2-predictor" data-edge-kind="predictor" d="M270 310 L340 310" fill="none" stroke="#70568F" stroke-width="2.2" stroke-linejoin="round" marker-end="url(#arrow-predictor)"/>
+<path id="s2-e02" data-from="s2-predictor" data-to="s2-joint-distribution" data-source="s2-predictor" data-target="s2-joint-distribution" data-edge-kind="predictor" d="M600 310 L670 310" fill="none" stroke="#70568F" stroke-width="2.2" stroke-linejoin="round" marker-end="url(#arrow-predictor)"/>
+<path id="s2-e03" data-from="s2-joint-distribution" data-to="s2-code-expectation" data-source="s2-joint-distribution" data-target="s2-code-expectation" data-edge-kind="predictor" d="M950 310 L1020 310" fill="none" stroke="#70568F" stroke-width="2.2" stroke-linejoin="round" marker-end="url(#arrow-predictor)"/>
+<path id="s2-e04" data-from="s2-code-expectation" data-to="s2-continuous-prior" data-source="s2-code-expectation" data-target="s2-continuous-prior" data-edge-kind="predictor" d="M1190 375 L1190 505" fill="none" stroke="#70568F" stroke-width="2.2" stroke-linejoin="round" marker-end="url(#arrow-predictor)"/>
+<path id="s2-e05" data-from="s2-frozen-teacher" data-to="s2-exported-labels" data-source="s2-frozen-teacher" data-target="s2-exported-labels" data-edge-kind="supervision" d="M270 575 L340 575" fill="none" stroke="#A87531" stroke-width="2.2" stroke-linejoin="round" marker-end="url(#arrow-supervision)"/>
+<path id="s2-e06" data-from="s2-exported-labels" data-to="s2-two-slot-nll" data-source="s2-exported-labels" data-target="s2-two-slot-nll" data-edge-kind="supervision" d="M600 575 L670 575" fill="none" stroke="#A87531" stroke-width="2.2" stroke-linejoin="round" marker-end="url(#arrow-supervision)"/>
+<path id="s2-e07" data-from="s2-joint-distribution" data-to="s2-two-slot-nll" data-source="s2-joint-distribution" data-target="s2-two-slot-nll" data-edge-kind="supervision" d="M810 375 L810 525" fill="none" stroke="#A87531" stroke-width="2.2" stroke-linejoin="round" marker-end="url(#arrow-supervision)"/>
+<g id="s2-horizons" data-annotation-id="s2-horizons"><rect x="40" y="140" width="1320" height="55" rx="7" fill="#F7F9FB" stroke="#D2DAE4" stroke-width="1"/>
+<text x="700" y="176" text-anchor="middle" font-size="17" fill="#455368">在0.25秒／0.5秒／1.0秒三个尺度上查询，共用P的权重</text>
+</g>
+<g id="s2-current-views" data-node-id="s2-current-views" data-node-type="input" aria-label="当前多视角图像. 冻结视觉编码器"><rect x="40" y="245" width="230" height="130" rx="8" fill="#F5F7FA" stroke="#AAB8C9" stroke-width="1.5"/>
+<text id="s2-current-views-title-0" class="node-title" x="155" y="303.5" text-anchor="middle">当前多视角图像</text>
+<text id="s2-current-views-body-0" class="node-body" x="155" y="330.5" text-anchor="middle">冻结视觉编码器</text>
+</g>
+<g id="s2-predictor" data-node-id="s2-predictor" data-node-type="predictor" aria-label="当前观测预测器. P. 双槽自回归预测. 先k₁，后k₂"><rect x="340" y="245" width="260" height="130" rx="8" fill="#F2EFF8" stroke="#79659B" stroke-width="1.5"/>
+<text id="s2-predictor-title-0" class="node-title" x="470" y="282.5" text-anchor="middle">当前观测预测器</text>
+<text id="s2-predictor-title-1" class="node-title" x="470" y="304.5" text-anchor="middle">P</text>
+<text id="s2-predictor-body-0" class="node-body" x="470" y="331.5" text-anchor="middle">双槽自回归预测</text>
+<text id="s2-predictor-body-1" class="node-body" x="470" y="351.5" text-anchor="middle">先k₁，后k₂</text>
+</g>
+<g id="s2-joint-distribution" data-node-id="s2-joint-distribution" data-node-type="predictor" aria-label="编码联合概率分布. p(k₁ | Iₜ, h) ×. p(k₂ | k₁, Iₜ, h)"><rect x="670" y="245" width="280" height="130" rx="8" fill="#F2EFF8" stroke="#79659B" stroke-width="1.5"/>
+<text id="s2-joint-distribution-title-0" class="node-title" x="810" y="293.5" text-anchor="middle">编码联合概率分布</text>
+<text id="s2-joint-distribution-body-0" class="node-body" x="810" y="320.5" text-anchor="middle">p(k₁ | Iₜ, h) ×</text>
+<text id="s2-joint-distribution-body-1" class="node-body" x="810" y="340.5" text-anchor="middle">p(k₂ | k₁, Iₜ, h)</text>
+</g>
+<g id="s2-code-expectation" data-node-id="s2-code-expectation" data-node-type="code" aria-label="码向量期望. 按联合概率加权. 固定FSQ数值码向量"><rect x="1020" y="245" width="340" height="130" rx="8" fill="#F4F1F8" stroke="#8B78A5" stroke-width="1.5"/>
+<text id="s2-code-expectation-title-0" class="node-title" x="1190" y="293.5" text-anchor="middle">码向量期望</text>
+<text id="s2-code-expectation-body-0" class="node-body" x="1190" y="320.5" text-anchor="middle">按联合概率加权</text>
+<text id="s2-code-expectation-body-1" class="node-body" x="1190" y="340.5" text-anchor="middle">固定FSQ数值码向量</text>
+</g>
+<g id="s2-continuous-prior" data-node-id="s2-continuous-prior" data-node-type="output" aria-label="连续潜动作先验. 3个尺度 × 6维 · 用于机器人策略"><rect x="1020" y="505" width="340" height="110" rx="8" fill="#F5F4F9" stroke="#8B78A5" stroke-width="1.5"/>
+<text id="s2-continuous-prior-title-0" class="node-title" x="1190" y="553.5" text-anchor="middle">连续潜动作先验</text>
+<text id="s2-continuous-prior-body-0" class="node-body" x="1190" y="580.5" text-anchor="middle">3个尺度 × 6维 · 用于机器人策略</text>
+</g>
+<g id="s2-frozen-teacher" data-node-id="s2-frozen-teacher" data-node-type="input" aria-label="已训练并冻结的. Teacher. 离线生成标签"><rect x="40" y="525" width="230" height="100" rx="8" fill="#F5F7FA" stroke="#AAB8C9" stroke-width="1.5"/>
+<text id="s2-frozen-teacher-title-0" class="node-title" x="155" y="557.5" text-anchor="middle">已训练并冻结的</text>
+<text id="s2-frozen-teacher-title-1" class="node-title" x="155" y="579.5" text-anchor="middle">Teacher</text>
+<text id="s2-frozen-teacher-body-0" class="node-body" x="155" y="606.5" text-anchor="middle">离线生成标签</text>
+</g>
+<g id="s2-exported-labels" data-node-id="s2-exported-labels" data-node-type="handoff" aria-label="离线导出的. 离散编码标签. 每尺度两个码槽"><rect x="340" y="525" width="260" height="100" rx="8" fill="#F6F7FA" stroke="#7A8799" stroke-width="1.5"/>
+<text id="s2-exported-labels-title-0" class="node-title" x="470" y="557.5" text-anchor="middle">离线导出的</text>
+<text id="s2-exported-labels-title-1" class="node-title" x="470" y="579.5" text-anchor="middle">离散编码标签</text>
+<text id="s2-exported-labels-body-0" class="node-body" x="470" y="606.5" text-anchor="middle">每尺度两个码槽</text>
+</g>
+<g id="s2-two-slot-nll" data-node-id="s2-two-slot-nll" data-node-type="loss" aria-label="双槽负对数似然. P的训练目标. −log p(k₁) − log p(k₂ | k₁)"><rect x="670" y="525" width="280" height="100" rx="8" fill="#FCF5EA" stroke="#AE7C3B" stroke-width="1.5"/>
+<text id="s2-two-slot-nll-title-0" class="node-title" x="810" y="558.5" text-anchor="middle">双槽负对数似然</text>
+<text id="s2-two-slot-nll-body-0" class="node-body" x="810" y="585.5" text-anchor="middle">P的训练目标</text>
+<text id="s2-two-slot-nll-body-1" class="node-body" x="810" y="605.5" text-anchor="middle">−log p(k₁) − log p(k₂ | k₁)</text>
+</g>
+<text id="s2-e01-label" class="edge-label" x="305" y="226" text-anchor="middle">仅当前观测</text>
+<text id="s2-e04-label" class="edge-label" x="1210" y="450" text-anchor="start">概率加权期望</text>
+<text id="s2-e05-label" class="edge-label" x="305" y="506" text-anchor="middle">导出</text>
+<text id="s2-e07-label" class="edge-label" x="832" y="450" text-anchor="start">预测的双槽概率</text>
+<path d="M40 684 H1400" fill="none" stroke="#DFE5EC" stroke-width="1"/>
+<text id="stage2_predictor-footer-0" class="footer" x="40" y="712">自回归发生在两个码槽之间，不沿机器人动作时间轴展开。</text>
+<text id="stage2_predictor-footer-1" class="footer" x="40" y="736">双槽NLL用于训练P；期望运算构造策略先验，不增加连续先验回归损失。</text>
+<text id="stage2_predictor-footer-2" class="footer" x="40" y="760">P训练使用当前UMI图像；阶段三用当前Robot图像生成策略先验。</text>
+</svg>

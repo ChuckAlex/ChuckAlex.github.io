@@ -1,0 +1,84 @@
+.irc-trials {
+  margin-block: 28px 8px;
+  scroll-margin-top: 88px;
+  color: var(--ink, #263448);
+  font-size: 16px;
+  line-height: 1.65;
+}
+.irc-trials h3 { margin: 0 0 10px; font-size: 22px; line-height: 1.35; }
+.irc-trials__summary { max-width: 76ch; margin: 0 0 16px; }
+.irc-trials__selector {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+  margin: 0 0 10px;
+  max-width: 590px;
+}
+.irc-trials button {
+  appearance: none;
+  min-height: 44px;
+  border: 1px solid var(--line, #c7d1dc);
+  border-radius: 3px;
+  padding: 9px 13px;
+  background: #fff;
+  color: var(--navy, #173e5b);
+  font: 600 15px/1.4 "Segoe UI", "Microsoft YaHei", sans-serif;
+  text-align: center;
+  cursor: pointer;
+}
+.irc-trials button:disabled { opacity: .55; cursor: not-allowed; }
+.irc-trials button:hover { background: #f1f5f8; }
+.irc-trials__scene-button[aria-pressed="true"] {
+  background: var(--navy, #173e5b);
+  border-color: var(--navy, #173e5b);
+  color: #fff;
+}
+.irc-trials__scene-button[aria-pressed="true"]:hover { background: #102f47; }
+.irc-trials button:focus-visible,
+.irc-trials video:focus-visible { outline: 3px solid #6b9fc5; outline-offset: 3px; }
+.irc-trials__timing { color: var(--muted, #596779); font-size: 14px; margin: 0 0 16px; }
+.irc-trials__scene { margin: 0 0 25px; padding: 0; scroll-margin-top: 7rem; }
+.irc-trials__scene h4 { font-size: 18px; line-height: 1.4; margin: 0 0 12px; }
+.irc-trials__pair { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
+.irc-trials__recording { margin: 0; min-width: 0; }
+.irc-trials__video,
+.irc-trials__poster {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  object-fit: contain;
+  object-position: center;
+  background: #12202c;
+}
+.irc-trials__recording figcaption {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 7px 12px;
+  flex-wrap: wrap;
+  margin: 8px 0 0;
+  color: var(--ink, #263448);
+  font-size: 14px;
+  line-height: 1.5;
+}
+.irc-trials__recording figcaption strong { font-size: 16px; font-weight: 650; }
+.irc-trials__recording figcaption span { color: var(--muted, #596779); }
+.irc-trials__pair-actions { display: flex; align-items: center; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+.irc-trials__error { margin: 8px 0 0; color: var(--muted, #596779); font-size: 14px; line-height: 1.5; }
+.irc-trials__error a { color: var(--navy, #173e5b); text-underline-offset: 3px; }
+.irc-trials__status { margin: 9px 0 0; color: var(--muted, #596779); font-size: 14px; }
+.irc-trials__status:empty { display: none; }
+.irc-trials [hidden] { display: none !important; }
+@media (max-width: 620px) {
+  .irc-trials { margin-top: 23px; }
+  .irc-trials h3 { font-size: 20px; }
+  .irc-trials__selector { width: 100%; gap: 6px; }
+  .irc-trials__selector button { padding: 9px 6px; font-size: 14px; }
+  .irc-trials__pair { grid-template-columns: minmax(0, 1fr); gap: 16px; }
+  .irc-trials__pair-actions button { flex: 1 1 120px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .irc-trials *, .irc-trials *::before, .irc-trials *::after { scroll-behavior: auto; }
+}

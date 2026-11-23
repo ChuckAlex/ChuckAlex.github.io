@@ -1,0 +1,54 @@
+name: Publish portfolio
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions: {}
+
+concurrency:
+  group: portfolio-pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Assemble approved recordings
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          tag="$(cat media/VERSION)"
+          download="$RUNNER_TEMP/portfolio-media"
+          mkdir -p "$download" site/assets/videos
+          gh release download "$tag" --repo "$GITHUB_REPOSITORY" --pattern '*.mp4' --pattern '*.webm' --dir "$download"
+          (cd "$download" && sha256sum --strict --check "$GITHUB_WORKSPACE/media/SHA256SUMS")
+          while read -r digest filename; do
+            [[ "$filename" =~ ^[A-Z0-9-]+\.(mp4|webm)$ ]]
+            install -m 0644 "$download/$filename" "site/assets/videos/$filename"
+          done < media/SHA256SUMS
+      - name: Package static site
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.publish.outputs.page_url }}
+    steps:
+      - id: publish
+        uses: actions/deploy-pages@v4

@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" xml:lang="zh" role="img" aria-labelledby="svg-title svg-desc" viewBox="0 0 1280 680" width="1280" height="680">
+<title id="svg-title">阶段 1 · 学习潜动作</title>
+<desc id="svg-desc">多尺度 UMI Teacher. Five primary modules. Primary model flow, independent visual bypasses, and subordinate training supervision are distinguished.</desc>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 1 L 9 5 L 0 9 z" fill="#5d6c82"/></marker><marker id="sup-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 1 L 9 5 L 0 9 z" fill="#b78c52"/></marker></defs>
+<rect width="100%" height="100%" fill="#ffffff"/>
+<g font-family="Arial,Microsoft YaHei,Noto Sans CJK SC,sans-serif">
+<text x="40" y="48" text-anchor="start" font-size="26" font-weight="600" fill="#26374d" >阶段 1 · 学习潜动作</text>
+<text x="40" y="84" text-anchor="start" font-size="18" font-weight="400" fill="#647287" >多尺度 UMI Teacher</text>
+<path id="s1-e-umi-teacher" data-from="s1-umi" data-to="s1-teacher" data-source="s1-umi" data-target="s1-teacher" data-kind="flow" d="M 270 290 L 340 290" fill="none" stroke="#5d6c82" stroke-width="2" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<path id="s1-e-teacher-latent" data-from="s1-teacher" data-to="s1-latent" data-source="s1-teacher" data-target="s1-latent" data-kind="flow" d="M 550 290 L 620 290" fill="none" stroke="#5d6c82" stroke-width="2" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<path id="s1-e-latent-fdm" data-from="s1-latent" data-to="s1-fdm" data-source="s1-latent" data-target="s1-fdm" data-kind="flow" d="M 850 290 L 890 290 L 890 230 L 930 230" fill="none" stroke="#5d6c82" stroke-width="2" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<path id="s1-e-latent-motion" data-from="s1-latent" data-to="s1-motion" data-source="s1-latent" data-target="s1-motion" data-kind="flow" d="M 850 290 L 890 290 L 890 475 L 930 475" fill="none" stroke="#5d6c82" stroke-width="2" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<path id="s1-e-current-bypass" data-from="s1-umi" data-to="s1-fdm" data-source="s1-umi" data-target="s1-fdm" data-kind="flow" data-source-port="current_visual_features" data-target-port="current_visual_features" d="M 155 225 L 155 135 L 1065 135 L 1065 170" fill="none" stroke="#5d6c82" stroke-width="2" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<path id="s1-e-fdm-loss" data-from="s1-fdm" data-to="s1-visual-loss" data-source="s1-fdm" data-target="s1-visual-loss" data-kind="supervision" d="M 1065 290 L 1065 325" fill="none" stroke="#b78c52" stroke-width="2" stroke-linejoin="round" marker-end="url(#sup-arrow)"/>
+<path id="s1-e-motion-loss" data-from="s1-motion" data-to="s1-motion-loss" data-source="s1-motion" data-target="s1-motion-loss" data-kind="supervision" d="M 1065 540 L 1065 575" fill="none" stroke="#b78c52" stroke-width="2" stroke-linejoin="round" marker-end="url(#sup-arrow)"/>
+<g id="s1-umi" data-node-id="s1-umi" data-primary="true" data-kind="input"><rect x="40" y="225" width="230" height="130" rx="9" fill="#f2f5f8" stroke="#8b9eb4" stroke-width="1.5"/>
+<text x="155" y="270.5" text-anchor="middle" font-size="20" font-weight="600" fill="#26374d" >UMI 当前与未来</text>
+<text x="155" y="295.5" text-anchor="middle" font-size="20" font-weight="600" fill="#26374d" >多视角图像</text>
+<text x="155" y="320.5" text-anchor="middle" font-size="18" font-weight="400" fill="#26374d" >冻结视觉特征</text>
+</g>
+<g id="s1-teacher" data-node-id="s1-teacher" data-primary="true" data-kind="model"><rect x="340" y="225" width="210" height="130" rx="9" fill="#f8f9fc" stroke="#788daa" stroke-width="1.5"/>
+<text x="445" y="283" text-anchor="middle" font-size="20" font-weight="600" fill="#26374d" >IDM → FSQ</text>
+<text x="445" y="308" text-anchor="middle" font-size="18" font-weight="400" fill="#26374d" >每尺度两个码槽</text>
+</g>
+<g id="s1-latent" data-node-id="s1-latent" data-primary="true" data-kind="latent"><rect x="620" y="225" width="230" height="130" rx="9" fill="#f3f0f8" stroke="#9a8aad" stroke-width="1.5"/>
+<text x="735" y="283" text-anchor="middle" font-size="20" font-weight="600" fill="#26374d" >量化潜动作</text>
+<text x="735" y="308" text-anchor="middle" font-size="18" font-weight="400" fill="#26374d" >数值码向量</text>
+</g>
+<g id="s1-fdm" data-node-id="s1-fdm" data-primary="true" data-kind="model"><rect x="930" y="170" width="270" height="120" rx="9" fill="#f8f9fc" stroke="#788daa" stroke-width="1.5"/>
+<text x="1065" y="223" text-anchor="middle" font-size="20" font-weight="600" fill="#26374d" >FDM 视觉预测</text>
+<text x="1065" y="248" text-anchor="middle" font-size="18" font-weight="400" fill="#26374d" >视觉特征变化</text>
+</g>
+<g id="s1-motion" data-node-id="s1-motion" data-primary="true" data-kind="model"><rect x="930" y="410" width="270" height="130" rx="9" fill="#f8f9fc" stroke="#788daa" stroke-width="1.5"/>
+<text x="1065" y="455.5" text-anchor="middle" font-size="20" font-weight="600" fill="#26374d" >独立运动头</text>
+<text x="1065" y="480.5" text-anchor="middle" font-size="18" font-weight="400" fill="#26374d" >相对平移 · 旋转</text>
+<text x="1065" y="505.5" text-anchor="middle" font-size="18" font-weight="400" fill="#26374d" >闭合增量</text>
+</g>
+<g id="s1-visual-loss" data-node-id="s1-visual-loss" data-primary="false" data-kind="supervision"><rect x="930" y="325" width="270" height="60" rx="6" fill="#fff8ee" stroke="#cfaa73" stroke-width="1.5"/>
+<text x="1065" y="352" text-anchor="middle" font-size="16" font-weight="600" fill="#26374d" >视觉损失</text>
+<text x="1065" y="373" text-anchor="middle" font-size="16" font-weight="400" fill="#26374d" >目标：未来 − 当前特征</text>
+</g>
+<g id="s1-motion-loss" data-node-id="s1-motion-loss" data-primary="false" data-kind="supervision"><rect x="930" y="575" width="270" height="60" rx="6" fill="#fff8ee" stroke="#cfaa73" stroke-width="1.5"/>
+<text x="1065" y="602" text-anchor="middle" font-size="16" font-weight="600" fill="#26374d" >UMI 运动损失</text>
+<text x="1065" y="623" text-anchor="middle" font-size="16" font-weight="400" fill="#26374d" >目标：UMI 跟踪运动标签</text>
+</g>
+<text x="610" y="119" text-anchor="middle" font-size="16" font-weight="400" fill="#53647a" paint-order="stroke" stroke="#ffffff" stroke-width="5" stroke-linejoin="round">当前视觉特征旁路</text>
+<text x="40" y="475" text-anchor="start" font-size="16" font-weight="400" fill="#5f6d80" >0.25 / 0.5 / 1.0 秒 · Teacher 共享权重</text>
+<text x="40" y="530" text-anchor="start" font-size="16" font-weight="400" fill="#5f6d80" >训练完成后：冻结 Teacher，导出离散标签供阶段 2 使用</text>
+</g>
+</svg>

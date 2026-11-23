@@ -1,0 +1,100 @@
+/* Shared project introduction. Home and the media players keep their styles. */
+.project-hero {
+  padding-block: clamp(2rem, 5vw, 4rem) 2.8rem;
+  margin: 0;
+  border-bottom: 1px solid var(--line, #dce2e8);
+  scroll-margin-top: 6rem;
+}
+.project-hero > .crumb {
+  display: inline-block;
+  margin-bottom: 1.7rem;
+}
+.project-hero-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, .8fr);
+  gap: clamp(1.75rem, 4vw, 3.5rem);
+  align-items: center;
+}
+.project-hero--text .project-hero-grid { grid-template-columns: minmax(0, 1fr); }
+.project-hero-copy, .project-hero-media, .project-body-sections { min-width: 0; }
+.project-hero-copy > .kicker { margin: 0 0 .7rem; }
+.project-hero h1 {
+  max-width: 26ch;
+  margin: 0 0 1.05rem;
+  font-size: clamp(1.85rem, 2.7vw, 2.65rem);
+  line-height: 1.19;
+  letter-spacing: -.025em;
+  overflow-wrap: break-word;
+  text-wrap: balance;
+}
+.project-hero .method-identity {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: .35rem .8rem;
+  max-width: 43rem;
+  margin: 0 0 1.25rem;
+  padding: 0;
+  border: 0;
+  font-size: .98rem;
+  line-height: 1.55;
+}
+.project-hero .method-identity strong {
+  color: var(--ink, #142d46);
+  font-size: 1.04rem;
+  white-space: nowrap;
+}
+.project-hero .method-identity span {
+  flex: 1 1 17rem;
+  min-width: 0;
+  color: var(--muted, #566675);
+  overflow-wrap: break-word;
+}
+.project-hero-intro { max-width: 43rem; font-size: 1.025rem; line-height: 1.75; }
+.project-hero-intro p { margin: 0 0 .9rem; }
+.project-hero .meta { margin: 1.1rem 0 0; font-size: .92rem; line-height: 1.65; }
+.project-hero-actions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: .85rem 1.2rem;
+  margin-top: 1.3rem;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+.project-hero-actions a { max-width: 100%; overflow-wrap: break-word; }
+.project-hero-actions .button { white-space: normal; text-align: center; }
+.project-hero-media figure, .project-hero-media .overview-image { margin: 0; max-width: none; }
+.project-hero-media img {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
+  border-radius: 4px;
+}
+.project-hero-media figcaption { margin-top: .65rem; font-size: .88rem; line-height: 1.6; }
+.project-section { scroll-margin-top: 6.75rem; }
+#contributions > p { padding-inline-start: 1rem; border-inline-start: 2px solid var(--line, #dce2e8); }
+.project-anchor-alias {
+  display: block;
+  position: relative;
+  height: 0;
+  scroll-margin-top: 6.75rem;
+}
+@media (max-width: 850px) {
+  .project-hero-grid { grid-template-columns: minmax(0, 1fr); gap: 1.6rem; }
+  .project-hero { padding-block: 1.7rem 2rem; }
+  .project-hero h1 { max-width: 30ch; font-size: clamp(1.8rem, 5.4vw, 2.3rem); }
+  .project-hero-media { max-width: 44rem; }
+  .project-hero--rl .project-hero-media { max-width: 35rem; }
+}
+@media (max-width: 480px) {
+  .project-hero h1 { font-size: 1.8rem; line-height: 1.23; }
+  .project-hero .method-identity { font-size: .96rem; }
+  .project-hero-intro { font-size: 1rem; }
+  .project-hero-actions { align-items: stretch; gap: .9rem; }
+  .project-hero-actions a { display: inline-flex; min-height: 44px; align-items: center; }
+  .project-hero-actions .button { justify-content: center; }
+}

@@ -1,0 +1,93 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="1280" viewBox="0 0 1440 1280" role="img" aria-labelledby="stage1_teacher-title stage1_teacher-desc" lang="zh-Hans">
+<title id="stage1_teacher-title">阶段一 · 多尺度潜动作教师</title>
+<desc id="stage1_teacher-desc">由当前与未来的UMI观测学习量化操作编码。 视觉与运动损失经FSQ直通路径共同训练IDM。 更新IDM、FDM和运动头；视觉编码器保持冻结。</desc>
+<defs>
+<marker id="arrow-data" viewBox="0 0 10 10" markerWidth="8" markerHeight="8" refX="9" refY="5" orient="auto-start-reverse" markerUnits="strokeWidth"><polygon points="0,0 10,5 0,10" fill="#345B80"/></marker>
+<marker id="arrow-predictor" viewBox="0 0 10 10" markerWidth="8" markerHeight="8" refX="9" refY="5" orient="auto-start-reverse" markerUnits="strokeWidth"><polygon points="0,0 10,5 0,10" fill="#70568F"/></marker>
+<marker id="arrow-supervision" viewBox="0 0 10 10" markerWidth="8" markerHeight="8" refX="9" refY="5" orient="auto-start-reverse" markerUnits="strokeWidth"><polygon points="0,0 10,5 0,10" fill="#A87531"/></marker>
+</defs>
+<style>text{font-family:Arial,"Microsoft YaHei","Noto Sans CJK SC",sans-serif;fill:#1D2A39} .stage-title{font-size:29px;font-weight:600} .stage-subtitle{font-size:17px;fill:#566476} .node-title{font-size:18px;font-weight:600} .node-body{font-size:16px;fill:#455368} .edge-label{font-size:14px;fill:#59677A} .footer{font-size:16px;fill:#455368}</style>
+<rect width="1440" height="1280" fill="#FFFFFF"/>
+<text class="stage-title" x="40" y="58">阶段一 · 多尺度潜动作教师</text>
+<text class="stage-subtitle" x="40" y="96">由当前与未来的UMI观测学习量化操作编码。</text>
+<path id="s1-e01" data-from="s1-umi-views" data-to="s1-idm" data-source="s1-umi-views" data-target="s1-idm" data-edge-kind="data" d="M720 250 L720 305" fill="none" stroke="#345B80" stroke-width="2.2" stroke-linejoin="round" marker-end="url(#arrow-data)"/>
+<path id="s1-e02" data-from="s1-idm" data-to="s1-fsq" data-source="s1-idm" data-target="s1-fsq" data-edge-kind="data" d="M720 395 L720 445" fill="none" stroke="#345B80" stroke-width="2.2" stroke-linejoin="round" marker-end="url(#arrow-data)"/>
+<path id="s1-e03" data-from="s1-fsq" data-to="s1-quantized-vectors" data-source="s1-fsq" data-target="s1-quantized-vectors" data-edge-kind="data" d="M720 535 L720 585" fill="none" stroke="#345B80" stroke-width="2.2" stroke-linejoin="round" marker-end="url(#arrow-data)"/>
+<path id="s1-e04" data-from="s1-umi-views" data-to="s1-current-features" data-source="s1-umi-views" data-target="s1-current-features" data-edge-kind="data" d="M470 195 L190 195 L190 585" fill="none" stroke="#345B80" stroke-width="2.2" stroke-linejoin="round" marker-end="url(#arrow-data)"/>
+<path id="s1-e05" data-from="s1-current-features" data-to="s1-fdm" data-source="s1-current-features" data-target="s1-fdm" data-edge-kind="data" d="M190 675 L190 735 L305 735 L305 770" fill="none" stroke="#345B80" stroke-width="2.2" stroke-linejoin="round" marker-end="url(#arrow-data)"/>
+<path id="s1-e06" data-from="s1-quantized-vectors" data-to="s1-fdm" data-source="s1-quantized-vectors" data-target="s1-fdm" data-edge-kind="data" d="M720 675 L720 715 L430 715 L430 770" fill="none" stroke="#345B80" stroke-width="2.2" stroke-linejoin="round" marker-end="url(#arrow-data)"/>
+<path id="s1-e07" data-from="s1-quantized-vectors" data-to="s1-motion-head" data-source="s1-quantized-vectors" data-target="s1-motion-head" data-edge-kind="data" d="M720 675 L720 715 L1010 715 L1010 770" fill="none" stroke="#345B80" stroke-width="2.2" stroke-linejoin="round" marker-end="url(#arrow-data)"/>
+<path id="s1-e08" data-from="s1-fdm" data-to="s1-visual-prediction" data-source="s1-fdm" data-target="s1-visual-prediction" data-edge-kind="data" d="M400 850 L400 910" fill="none" stroke="#345B80" stroke-width="2.2" stroke-linejoin="round" marker-end="url(#arrow-data)"/>
+<path id="s1-e09" data-from="s1-motion-head" data-to="s1-motion-prediction" data-source="s1-motion-head" data-target="s1-motion-prediction" data-edge-kind="data" d="M1010 850 L1010 910" fill="none" stroke="#345B80" stroke-width="2.2" stroke-linejoin="round" marker-end="url(#arrow-data)"/>
+<path id="s1-e10" data-from="s1-visual-prediction" data-to="s1-visual-loss" data-source="s1-visual-prediction" data-target="s1-visual-loss" data-edge-kind="supervision" d="M400 990 L400 1130" fill="none" stroke="#A87531" stroke-width="2.2" stroke-linejoin="round" marker-end="url(#arrow-supervision)"/>
+<path id="s1-e11" data-from="s1-visual-target" data-to="s1-visual-loss" data-source="s1-visual-target" data-target="s1-visual-loss" data-edge-kind="supervision" d="M180 1100 L180 1170 L280 1170" fill="none" stroke="#A87531" stroke-width="2.2" stroke-linejoin="round" marker-end="url(#arrow-supervision)"/>
+<path id="s1-e12" data-from="s1-motion-prediction" data-to="s1-motion-loss" data-source="s1-motion-prediction" data-target="s1-motion-loss" data-edge-kind="supervision" d="M1010 1010 L1010 1130" fill="none" stroke="#A87531" stroke-width="2.2" stroke-linejoin="round" marker-end="url(#arrow-supervision)"/>
+<path id="s1-e13" data-from="s1-motion-labels" data-to="s1-motion-loss" data-source="s1-motion-labels" data-target="s1-motion-loss" data-edge-kind="supervision" d="M1260 1110 L1260 1170 L1130 1170" fill="none" stroke="#A87531" stroke-width="2.2" stroke-linejoin="round" marker-end="url(#arrow-supervision)"/>
+<path id="s1-e14" data-from="s1-fsq" data-to="s1-exported-labels" data-source="s1-fsq" data-target="s1-exported-labels" data-edge-kind="data" d="M850 490 L990 490" fill="none" stroke="#345B80" stroke-width="2.2" stroke-linejoin="round" marker-end="url(#arrow-data)"/>
+<g id="s1-horizons" data-annotation-id="s1-horizons"><rect x="1020" y="300" width="350" height="86" rx="7" fill="#F7F9FB" stroke="#D2DAE4" stroke-width="1"/>
+<text x="1195" y="340" text-anchor="middle" font-size="18" fill="#455368">0.25秒／0.5秒／1.0秒</text>
+<text x="1195" y="364" text-anchor="middle" font-size="16" fill="#455368">三个尺度共用Teacher权重</text>
+</g>
+<g id="s1-umi-views" data-node-id="s1-umi-views" data-node-type="input" aria-label="当前及未来UMI多视角图像. 头戴 · 左腕 · 右腕. 冻结视觉编码器"><rect x="470" y="140" width="500" height="110" rx="8" fill="#F5F7FA" stroke="#AAB8C9" stroke-width="1.5"/>
+<text id="s1-umi-views-title-0" class="node-title" x="720" y="178.5" text-anchor="middle">当前及未来UMI多视角图像</text>
+<text id="s1-umi-views-body-0" class="node-body" x="720" y="205.5" text-anchor="middle">头戴 · 左腕 · 右腕</text>
+<text id="s1-umi-views-body-1" class="node-body" x="720" y="225.5" text-anchor="middle">冻结视觉编码器</text>
+</g>
+<g id="s1-idm" data-node-id="s1-idm" data-node-type="model" aria-label="逆向动力学模型. IDM"><rect x="590" y="305" width="260" height="90" rx="8" fill="#F0F4FA" stroke="#46698C" stroke-width="1.5"/>
+<text id="s1-idm-title-0" class="node-title" x="720" y="346" text-anchor="middle">逆向动力学模型</text>
+<text id="s1-idm-title-1" class="node-title" x="720" y="368" text-anchor="middle">IDM</text>
+</g>
+<g id="s1-fsq" data-node-id="s1-fsq" data-node-type="code" aria-label="有限标量量化. FSQ"><rect x="590" y="445" width="260" height="90" rx="8" fill="#F4F1F8" stroke="#8B78A5" stroke-width="1.5"/>
+<text id="s1-fsq-title-0" class="node-title" x="720" y="486" text-anchor="middle">有限标量量化</text>
+<text id="s1-fsq-title-1" class="node-title" x="720" y="508" text-anchor="middle">FSQ</text>
+</g>
+<g id="s1-quantized-vectors" data-node-id="s1-quantized-vectors" data-node-type="code" aria-label="量化后的码向量. 每尺度2个码槽 × 3维"><rect x="550" y="585" width="340" height="90" rx="8" fill="#F4F1F8" stroke="#8B78A5" stroke-width="1.5"/>
+<text id="s1-quantized-vectors-title-0" class="node-title" x="720" y="623.5" text-anchor="middle">量化后的码向量</text>
+<text id="s1-quantized-vectors-body-0" class="node-body" x="720" y="650.5" text-anchor="middle">每尺度2个码槽 × 3维</text>
+</g>
+<g id="s1-current-features" data-node-id="s1-current-features" data-node-type="input" aria-label="当前视觉特征. 只取当前观测特征"><rect x="30" y="585" width="320" height="90" rx="8" fill="#F5F7FA" stroke="#AAB8C9" stroke-width="1.5"/>
+<text id="s1-current-features-title-0" class="node-title" x="190" y="623.5" text-anchor="middle">当前视觉特征</text>
+<text id="s1-current-features-body-0" class="node-body" x="190" y="650.5" text-anchor="middle">只取当前观测特征</text>
+</g>
+<g id="s1-fdm" data-node-id="s1-fdm" data-node-type="model" aria-label="前向动力学模型. FDM"><rect x="240" y="770" width="320" height="80" rx="8" fill="#F0F4FA" stroke="#46698C" stroke-width="1.5"/>
+<text id="s1-fdm-title-0" class="node-title" x="400" y="803.5" text-anchor="middle">前向动力学模型</text>
+<text id="s1-fdm-body-0" class="node-body" x="400" y="830.5" text-anchor="middle">FDM</text>
+</g>
+<g id="s1-motion-head" data-node-id="s1-motion-head" data-node-type="model" aria-label="独立运动预测头"><rect x="850" y="770" width="320" height="80" rx="8" fill="#F0F4FA" stroke="#46698C" stroke-width="1.5"/>
+<text id="s1-motion-head-title-0" class="node-title" x="1010" y="817" text-anchor="middle">独立运动预测头</text>
+</g>
+<g id="s1-visual-prediction" data-node-id="s1-visual-prediction" data-node-type="output" aria-label="预测视觉特征变化"><rect x="240" y="910" width="320" height="80" rx="8" fill="#F5F4F9" stroke="#8B78A5" stroke-width="1.5"/>
+<text id="s1-visual-prediction-title-0" class="node-title" x="400" y="957" text-anchor="middle">预测视觉特征变化</text>
+</g>
+<g id="s1-motion-prediction" data-node-id="s1-motion-prediction" data-node-type="output" aria-label="相对运动预测. 双手相对平移／相对旋转. 以及闭合增量"><rect x="835" y="910" width="350" height="100" rx="8" fill="#F5F4F9" stroke="#8B78A5" stroke-width="1.5"/>
+<text id="s1-motion-prediction-title-0" class="node-title" x="1010" y="943.5" text-anchor="middle">相对运动预测</text>
+<text id="s1-motion-prediction-body-0" class="node-body" x="1010" y="970.5" text-anchor="middle">双手相对平移／相对旋转</text>
+<text id="s1-motion-prediction-body-1" class="node-body" x="1010" y="990.5" text-anchor="middle">以及闭合增量</text>
+</g>
+<g id="s1-visual-target" data-node-id="s1-visual-target" data-node-type="target" aria-label="未来特征 − 当前特征. 视觉监督目标"><rect x="30" y="1020" width="300" height="80" rx="8" fill="#FCF7EF" stroke="#BE985E" stroke-width="1.5"/>
+<text id="s1-visual-target-title-0" class="node-title" x="180" y="1056" text-anchor="middle">未来特征 − 当前特征</text>
+<text id="s1-visual-target-title-1" class="node-title" x="180" y="1078" text-anchor="middle">视觉监督目标</text>
+</g>
+<g id="s1-motion-labels" data-node-id="s1-motion-labels" data-node-type="target" aria-label="UMI运动标签. 跟踪得到的双手相对运动"><rect x="1110" y="1030" width="300" height="80" rx="8" fill="#FCF7EF" stroke="#BE985E" stroke-width="1.5"/>
+<text id="s1-motion-labels-title-0" class="node-title" x="1260" y="1063.5" text-anchor="middle">UMI运动标签</text>
+<text id="s1-motion-labels-body-0" class="node-body" x="1260" y="1090.5" text-anchor="middle">跟踪得到的双手相对运动</text>
+</g>
+<g id="s1-visual-loss" data-node-id="s1-visual-loss" data-node-type="loss" aria-label="视觉损失. 视觉变化监督"><rect x="280" y="1130" width="280" height="80" rx="8" fill="#FCF5EA" stroke="#AE7C3B" stroke-width="1.5"/>
+<text id="s1-visual-loss-title-0" class="node-title" x="420" y="1163.5" text-anchor="middle">视觉损失</text>
+<text id="s1-visual-loss-body-0" class="node-body" x="420" y="1190.5" text-anchor="middle">视觉变化监督</text>
+</g>
+<g id="s1-motion-loss" data-node-id="s1-motion-loss" data-node-type="loss" aria-label="运动损失. UMI运动监督"><rect x="850" y="1130" width="280" height="80" rx="8" fill="#FCF5EA" stroke="#AE7C3B" stroke-width="1.5"/>
+<text id="s1-motion-loss-title-0" class="node-title" x="990" y="1163.5" text-anchor="middle">运动损失</text>
+<text id="s1-motion-loss-body-0" class="node-body" x="990" y="1190.5" text-anchor="middle">UMI运动监督</text>
+</g>
+<g id="s1-exported-labels" data-node-id="s1-exported-labels" data-node-type="handoff" aria-label="离线导出的. 离散编码标签. 训练后冻结Teacher · 交接阶段二"><rect x="990" y="445" width="380" height="90" rx="8" fill="#F6F7FA" stroke="#7A8799" stroke-width="1.5"/>
+<text id="s1-exported-labels-title-0" class="node-title" x="1180" y="472.5" text-anchor="middle">离线导出的</text>
+<text id="s1-exported-labels-title-1" class="node-title" x="1180" y="494.5" text-anchor="middle">离散编码标签</text>
+<text id="s1-exported-labels-body-0" class="node-body" x="1180" y="521.5" text-anchor="middle">训练后冻结Teacher · 交接阶段二</text>
+</g>
+<text id="s1-e04-label" class="edge-label" x="207" y="408" text-anchor="start">当前特征旁路</text>
+<text id="s1-e14-label" class="edge-label" x="920" y="424" text-anchor="middle">ID · 离线导出</text>
+<path d="M40 1212 H1400" fill="none" stroke="#DFE5EC" stroke-width="1"/>
+<text id="stage1_teacher-footer-0" class="footer" x="40" y="1240">视觉与运动损失经FSQ直通路径共同训练IDM。</text>
+<text id="stage1_teacher-footer-1" class="footer" x="40" y="1264">更新IDM、FDM和运动头；视觉编码器保持冻结。</text>
+</svg>

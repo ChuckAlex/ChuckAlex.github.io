@@ -1,0 +1,90 @@
+/* Public adaptation of Method Visualization V2. Scoped to the method fragment. */
+.mv2-public {
+  --mv2-ink: #192533;
+  --mv2-navy: #153d66;
+  --mv2-muted: #536173;
+  --mv2-line: #dce3eb;
+  --mv2-surface: #f5f7fa;
+  color: var(--mv2-ink);
+  min-width: 0;
+}
+.mv2-public *, .mv2-public *::before, .mv2-public *::after { box-sizing: border-box; }
+.mv2-public p, .mv2-public h3, .mv2-public h4, .mv2-public figure { margin: 0; }
+.mv2-method-heading { display:grid; grid-template-columns:minmax(0,1fr) auto; align-items:start; gap:16px; }
+.mv2-public .mv2-language { display:flex; align-items:center; flex-shrink:0; gap:6px; font-size:14px; }
+.mv2-language a, .mv2-language > span[lang] { min-height:44px; display:inline-flex; align-items:center; padding-inline:5px; }
+.mv2-language [aria-current] { color:var(--mv2-ink); font-weight:700; }
+.mv2-language > span[aria-hidden] { color:var(--mv2-muted); }
+.mv2-idea { margin-top:0; }
+.mv2-public .mv2-eyebrow { color:var(--mv2-navy); font-size:14px; line-height:1.5; font-weight:650; letter-spacing:.04em; margin-bottom:8px; }
+.mv2-public h3 { font-family:inherit; font-size:24px; line-height:1.35; font-weight:650; letter-spacing:-.015em; }
+.mv2-public .mv2-diagram { margin-top:20px; }
+.mv2-diagram-link { display:block; background:#fff; border:1px solid var(--mv2-line); text-decoration:none; }
+.mv2-public .mv2-mobile-diagram, .mv2-public .mv2-open-mobile { display:none; }
+.mv2-diagram img { display:block; width:100%; }
+.mv2-diagram img { height:auto; max-height:none; object-fit:contain; background:#fff; }
+.mv2-public .mv2-diagram figcaption { display:flex; align-items:flex-start; justify-content:space-between; gap:16px; margin-top:12px; color:var(--mv2-muted); font-size:14px; line-height:1.6; }
+.mv2-diagram figcaption p { max-width:75ch; }
+.mv2-diagram figcaption a { flex-shrink:0; color:var(--mv2-navy); text-underline-offset:.2em; }
+.mv2-pipeline { margin-top:34px; border-top:1px solid var(--mv2-line); padding-top:25px; }
+.mv2-public .mv2-pipeline-intro { color:var(--mv2-muted); max-width:80ch; margin-top:9px; line-height:1.65; }
+.mv2-stages { display:grid; grid-template-columns:1fr; gap:24px; list-style:none; padding:0; margin:22px 0 0; }
+.mv2-stage { position:relative; min-width:0; border:1px solid var(--mv2-line); padding:26px; background:#fff; scroll-margin-top:100px; }
+.mv2-public .mv2-stage h4 { font-family:inherit; font-size:22px; line-height:1.4; font-weight:650; overflow-wrap:break-word; }
+.mv2-public .mv2-stage-summary { margin-top:11px; font-size:16px; line-height:1.65; }
+.mv2-explanation { margin-top:17px; border-top:1px solid var(--mv2-line); padding-top:12px; font-size:15px; line-height:1.65; }
+.mv2-explanation summary { cursor:pointer; color:var(--mv2-navy); font-weight:600; min-height:44px; padding-block:7px; }
+.mv2-public .mv2-explanation p { margin-top:10px; color:var(--mv2-muted); }
+.mv2-public .mv2-mobile-figure { display:none; }
+.mv2-public .mv2-stage-technical { margin-top:20px; padding-top:18px; }
+.mv2-public .mv2-stage-technical p { max-width:90ch; font-size:16px; line-height:1.7; }
+.mv2-technical-button { display:inline-flex; align-items:center; justify-content:center; min-height:48px; margin-top:18px; padding:10px 20px; color:#fff; background:var(--mv2-navy); font-size:16px; font-weight:600; text-decoration:none; }
+.mv2-technical-button:hover { background:#0c2e50; color:#fff; }
+.mv2-diagram figcaption p:empty { display:none; }
+.mv2-public a:focus-visible, .mv2-public summary:focus-visible { outline:3px solid #236fa8; outline-offset:4px; }
+.mv2-viewer { position:fixed; width:96vw; height:94dvh; max-width:none; max-height:none; padding:0; border:1px solid var(--mv2-line); background:#fff; color:var(--mv2-ink); }
+.mv2-viewer::backdrop { background:rgb(15 30 45 / 65%); }
+.mv2-viewer[open] { display:flex; }
+.mv2-viewer-shell { display:flex; flex-direction:column; width:100%; height:100%; min-height:0; background:#fff; }
+.mv2-viewer-shell:fullscreen { width:100vw; height:100dvh; }
+.mv2-viewer-top { display:flex; align-items:flex-start; justify-content:space-between; gap:16px; padding:12px 18px; border-bottom:1px solid var(--mv2-line); }
+.mv2-viewer-top strong { flex:1; min-width:0; font-size:16px; line-height:1.5; }
+.mv2-viewer-controls { display:flex; align-items:center; flex-wrap:wrap; gap:8px; padding:10px 18px; border-bottom:1px solid var(--mv2-line); }
+.mv2-viewer button { flex-shrink:0; min-height:42px; padding:6px 13px; border:1px solid var(--mv2-line); background:#fff; color:var(--mv2-navy); font:inherit; font-size:15px; cursor:pointer; }
+.mv2-viewer button[aria-pressed=true] { background:var(--mv2-navy); color:#fff; }
+.mv2-viewer button:focus-visible { outline:3px solid #236fa8; outline-offset:3px; }
+.mv2-viewer [data-mv2-zoom-status] { min-width:44px; text-align:center; color:var(--mv2-muted); font-size:14px; }
+.mv2-public .mv2-viewer-hint, .mv2-public .mv2-viewer-error { margin:0; padding:8px 18px; border-bottom:1px solid var(--mv2-line); color:var(--mv2-muted); font-size:14px; line-height:1.55; }
+.mv2-viewer-error[hidden] { display:none; }
+.mv2-viewer-scroll { flex:1; min-height:0; overflow:auto; overscroll-behavior:contain; background:#f3f5f7; }
+.mv2-viewer-canvas { width:max-content; min-width:100%; min-height:100%; display:grid; place-items:center; padding:18px; }
+.mv2-public .mv2-viewer-image { display:block; max-width:none; height:auto; object-fit:contain; background:#fff; box-shadow:0 1px 8px rgb(20 40 60 / 8%); }
+html.mv2-viewer-open { overflow:hidden; }
+@media(max-width:880px) and (min-width:701px) {
+  .mv2-stage { padding:22px; }
+}
+@media(max-width:700px) {
+  .mv2-method-heading { grid-template-columns:1fr; gap:6px; }
+  .mv2-public .mv2-language { justify-self:end; }
+  .mv2-public h3 { font-size:22px; }
+  .mv2-public .mv2-desktop-diagram, .mv2-public .mv2-open-desktop { display:none; }
+  .mv2-public .mv2-mobile-diagram { display:block; }
+  .mv2-public .mv2-desktop-figure { display:none; }
+  .mv2-public .mv2-mobile-figure { display:block; }
+  .mv2-public .mv2-open-mobile { display:inline-flex; }
+  .mv2-public .mv2-diagram figcaption { flex-direction:column; gap:8px; }
+  .mv2-diagram figcaption a { min-height:36px; display:inline-flex; align-items:center; }
+  .mv2-pipeline { margin-top:27px; padding-top:22px; }
+  .mv2-stages { gap:24px; margin-top:20px; }
+  .mv2-stage { padding:19px; }
+  .mv2-public .mv2-stage h4 { font-size:20px; }
+  .mv2-explanation { margin-top:14px; }
+  .mv2-technical-button { width:100%; text-align:center; }
+  .mv2-viewer { width:100vw; height:100dvh; margin:0; border:0; }
+  .mv2-viewer-top { padding:10px; gap:10px; }
+  .mv2-viewer-controls { padding:8px 10px; gap:5px; }
+  .mv2-viewer button { font-size:14px; padding:6px 10px; }
+}
+@media(prefers-reduced-motion:reduce) {
+  .mv2-public { scroll-behavior:auto; }
+}

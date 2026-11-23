@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="610" viewBox="0 0 1440 610" role="img" aria-labelledby="title desc" lang="en">
+<title id="title">Research Idea</title>
+<desc id="desc">Only UMI has a solid transfer route. The separate gray dashed Ego node has no connection to the current policy.</desc>
+<defs><marker id="arrow" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto"><path d="M0 0L10 4L0 8Z" fill="#153d66"/></marker><marker id="supervision" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto"><path d="M0 0L10 4L0 8Z" fill="#b77729"/></marker></defs>
+<rect width="1440" height="610" fill="white"/>
+<g font-family="Segoe UI,Microsoft YaHei,Arial,sans-serif">
+<text id="heading" x="720" y="43" text-anchor="middle" font-size="28" font-weight="650" fill="#192533">Research Idea</text>
+<text id="goal" x="720" y="84" text-anchor="middle" font-size="19" font-weight="500" fill="#536173">Long-Term Research Goal: Ego + UMI + Robot</text>
+<rect x="24" y="126" width="330" height="410" rx="8" fill="#fff" stroke="#dce3eb"/>
+<text id="human-title" x="189" y="159" text-anchor="middle" font-size="18" font-weight="600" fill="#192533">Low-Cost Human Demonstrations</text>
+<text id="human-subtitle" x="189" y="187" text-anchor="middle" font-size="16" font-weight="400" fill="#536173">(Ego + UMI)</text>
+<polyline id="idea-umi-knowledge" data-from="umi" data-to="knowledge" points="334,260 410,260" fill="none" stroke="#153d66" stroke-width="2.5" marker-end="url(#arrow)"/>
+<polyline id="idea-knowledge-vla" data-from="knowledge" data-to="vla" points="640,260 720,260" fill="none" stroke="#153d66" stroke-width="2.5" marker-end="url(#arrow)"/>
+<polyline id="idea-vla-policy" data-from="vla" data-to="policy" points="1010,260 1090,260" fill="none" stroke="#153d66" stroke-width="2.5" marker-end="url(#arrow)"/>
+<polyline id="idea-robot-vla" data-from="robot" data-to="vla" points="865,400 865,322" fill="none" stroke="#b77729" stroke-width="2.5" marker-end="url(#supervision)"/>
+<g id="umi" data-node-id="umi"><rect x="44" y="212" width="290" height="96" rx="6" fill="#f2f6fb" stroke="#153d66" stroke-width="1.6"/>
+<text id="umi-label-0" x="189.0" y="251.0" text-anchor="middle" font-size="18" font-weight="600" fill="#192533">UMI Demonstrations</text>
+<text id="umi-label-1" x="189.0" y="281.0" text-anchor="middle" font-size="18" font-weight="400" fill="#192533">Current knowledge source</text>
+</g>
+<g id="ego" data-node-id="ego"><rect x="44" y="350" width="290" height="150" rx="6" fill="#f6f7f9" stroke="#7a8490" stroke-width="1.6" stroke-dasharray="7 5"/>
+<text id="ego-label-0" x="189.0" y="401.0" text-anchor="middle" font-size="17" font-weight="600" fill="#536173">Ego Videos · Future Integration</text>
+<text id="ego-label-1" x="189.0" y="431.0" text-anchor="middle" font-size="17" font-weight="400" fill="#536173">Data Preparation Completed;</text>
+<text id="ego-label-2" x="189.0" y="461.0" text-anchor="middle" font-size="17" font-weight="400" fill="#536173">Not Used in Current Policy</text>
+</g>
+<g id="knowledge" data-node-id="knowledge"><rect x="410" y="212" width="230" height="110" rx="6" fill="#f2f6fb" stroke="#153d66" stroke-width="1.6"/>
+<text id="knowledge-label-0" x="525.0" y="258.0" text-anchor="middle" font-size="18" font-weight="600" fill="#192533">Transferable</text>
+<text id="knowledge-label-1" x="525.0" y="288.0" text-anchor="middle" font-size="18" font-weight="400" fill="#192533">Manipulation Knowledge</text>
+</g>
+<g id="vla" data-node-id="vla"><rect x="720" y="212" width="290" height="110" rx="6" fill="#f2f6fb" stroke="#153d66" stroke-width="1.6"/>
+<text id="vla-label-0" x="865.0" y="258.0" text-anchor="middle" font-size="18" font-weight="600" fill="#192533">Data-Efficient</text>
+<text id="vla-label-1" x="865.0" y="288.0" text-anchor="middle" font-size="18" font-weight="400" fill="#192533">VLA Post-Training</text>
+</g>
+<g id="policy" data-node-id="policy"><rect x="1090" y="212" width="310" height="110" rx="6" fill="#eff6f2" stroke="#34634d" stroke-width="1.6"/>
+<text id="policy-label-0" x="1245.0" y="273.0" text-anchor="middle" font-size="18" font-weight="600" fill="#192533">Humanoid Robot Policies</text>
+</g>
+<g id="robot" data-node-id="robot"><rect x="720" y="400" width="290" height="100" rx="6" fill="#eff6f2" stroke="#34634d" stroke-width="1.6"/>
+<text id="robot-label-0" x="865.0" y="426.0" text-anchor="middle" font-size="18" font-weight="600" fill="#192533">Limited, Costly</text>
+<text id="robot-label-1" x="865.0" y="456.0" text-anchor="middle" font-size="18" font-weight="400" fill="#192533">Target-Robot Teleoperation</text>
+<text id="robot-label-2" x="865.0" y="486.0" text-anchor="middle" font-size="18" font-weight="400" fill="#192533">Native action supervision</text>
+</g>
+<text id="robot-edge-label" x="975" y="369" text-anchor="middle" font-size="16" font-weight="400" fill="#536173">Native actions</text>
+<text id="current-status" x="900" y="558" text-anchor="middle" font-size="20" font-weight="600" fill="#153d66">Current Validated Pipeline: UMI → Teacher / Predictor → Robot Policy</text>
+<text id="flow-legend" x="900" y="587" text-anchor="middle" font-size="16" font-weight="400" fill="#536173">Solid arrows: current staged transfer</text>
+</g></svg>

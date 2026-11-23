@@ -1,0 +1,59 @@
+
+:root{--ink:#192a39;--navy:#143d61;--muted:#465d71;--line:#cbd6dc;--pale:#f1f5f7;--page:1192px;color-scheme:light}
+*{box-sizing:border-box}
+body{margin:0;color:var(--ink);background:#fff;font:17px/1.56 "Segoe UI","Microsoft YaHei",Arial,sans-serif}
+h1,h2,h3,p,ol,ul,figure,dl,dd{margin:0}
+a{color:var(--navy);text-underline-offset:4px;text-decoration-thickness:1px}
+a:hover{text-decoration:underline}
+a:focus-visible,summary:focus-visible{outline:3px solid #31699b;outline-offset:4px}
+.wrap{width:min(calc(100% - 88px),var(--page));margin:auto}
+header{border-bottom:1px solid var(--line)}
+header .wrap,.brand,.language,.navrow,footer .wrap{display:flex;align-items:center}
+header .wrap{justify-content:space-between;gap:1rem;padding:18px 0}
+.brand{gap:11px;text-decoration:none;font-weight:650}
+.monogram{display:grid;place-items:center;width:42px;height:42px;background:var(--navy);color:white;font:21px Georgia,serif}
+.navrow{gap:28px;font-size:15px}.language{gap:6px}.language a[aria-current]{font-weight:750}
+header a,footer a,.side a{text-decoration:none}
+h1,h2,.project-card .project-card-title,.facts .big{font-family:Georgia,"Microsoft YaHei",serif;font-weight:500}
+:lang(zh-CN) h1,:lang(zh-CN) h2,:lang(zh-CN) .project-card .project-card-title{font-weight:650}
+h1{font-size:clamp(48px,5.5vw,85px);line-height:1.02;letter-spacing:-.045em}
+:lang(zh-CN) h1{letter-spacing:-.02em}h2{font-size:clamp(29px,3vw,43px);line-height:1.17;letter-spacing:-.025em}
+h3{font-size:21px;line-height:1.28}
+.kicker{color:var(--muted);font-size:14px;line-height:1.35;font-weight:650;letter-spacing:.06em}
+.hero{display:grid;grid-template-columns:minmax(0,.98fr) minmax(0,1.02fr);gap:clamp(28px,5vw,78px);align-items:center;padding:60px 0}
+.hero h1{margin:10px 0 14px}.hero .identity{font-size:24px;line-height:1.3;color:var(--navy);margin-bottom:16px}.hero .bio{max-width:58ch}.status{margin-top:18px;font-weight:600;font-size:16px}
+.actions{display:flex;flex-wrap:wrap;align-items:center;gap:14px 23px;margin-top:24px}.button{display:inline-block;background:var(--navy);color:#fff;font-weight:600;text-decoration:none;padding:10px 18px;border-radius:2px}
+figure img{display:block;width:100%;height:auto;object-fit:contain}figcaption,.caption{color:var(--muted);font-size:14px;margin-top:7px;line-height:1.45}
+.hero figure{border-bottom:1px solid var(--line);padding-bottom:8px}.hero img{background:var(--pale)}
+.home-section,.article-section{border-top:1px solid var(--line);padding:42px 0}.home-section>h2{margin-bottom:22px}
+.interests,.cap-grid,.projects,.facts,.demo-grid,.stage-list,.contact-grid{display:grid;gap:24px;grid-template-columns:repeat(2,minmax(0,1fr))}
+.interests,.stage-list{grid-template-columns:repeat(3,minmax(0,1fr))}
+.interests p,.cap-grid p,.project-card p{margin-top:9px}.interests article{padding-right:17px}
+.project-card{display:flex;flex-direction:column;border:1px solid var(--line);border-top:3px solid var(--navy);min-width:0}
+.project-card .photo,.project-card .reserve{width:100%;aspect-ratio:16/8;background:var(--pale);object-fit:contain}
+.project-body{display:flex;flex-direction:column;align-items:flex-start;flex:1;padding:24px}.project-card .project-card-title{font-size:clamp(24px,2.3vw,35px);margin:7px 0;line-height:1.15}
+.project-card .project-link{padding-top:17px;margin-top:auto;font-size:16px;font-weight:650}.numbers{color:var(--navy);font-weight:600}
+.reserve{display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:18px;color:#3d566c;background:var(--pale)}
+.reserve .placeholder{font:25px/1.25 Georgia,"Microsoft YaHei",serif}.reserve small{font-size:14px;margin-top:8px}.reserve .marker{display:block;width:38px;height:3px;background:#7890a3;margin:0 auto 15px}
+.cap-grid{column-gap:42px}.cap-grid article{border-left:2px solid var(--line);padding-left:16px}.cap-grid a{display:inline-block;margin-top:7px;font-size:15px}
+.timeline{list-style:none;padding:0}.timeline li{display:grid;grid-template-columns:160px 1.2fr 1fr;gap:16px;padding:12px 0;border-bottom:1px solid var(--line)}.timeline .date{color:var(--muted);font-size:15px}.timeline .org{font-weight:600}
+.contact-grid{align-items:start}.email{font-size:21px}.cv-slot{display:inline-block;color:#425768;border-bottom:1px dashed #8c9cab;font-size:15px}
+footer{background:#f3f5f7;border-top:1px solid var(--line);font-size:15px}footer .wrap{justify-content:space-between;gap:14px;flex-wrap:wrap;padding-block:22px}
+.project-title{padding:26px 0 33px}.project-title .kicker{margin:28px 0 11px}.project-title h1{font-size:clamp(35px,4.1vw,63px);line-height:1.08;max-width:32ch}.crumb{font-size:15px}.project-title .meta{color:var(--muted);margin-top:13px}
+.project-layout{display:grid;grid-template-columns:200px minmax(0,1fr);gap:52px;padding-bottom:18px}
+.side nav{border-top:2px solid var(--navy);padding-top:14px;position:sticky;top:12px}.side a{display:block;font-size:15px;border-left:1px solid var(--line);padding:5px 0 5px 10px}.side a:hover{border-left-color:var(--navy)}.side p{font-size:14px;font-weight:650;margin-bottom:8px}
+.article-section{padding:29px 0 34px}.article-section h2{font-size:32px;margin-bottom:15px}
+.article-section>p{max-width:78ch}.article-section>p+p{margin-top:12px}.article-section>figure,.article-section>.reserve,.article-section>.stage-list,.article-section>.gallery,.article-section>.demo-grid,.article-section>.table-area{margin-top:20px}
+.overview-image img{max-height:345px;background:var(--pale)}.article-section>.reserve{min-height:175px;border:1px dashed #a1b0bd}
+.stage-list{list-style:none;padding:0;gap:22px}.stage-list li{position:relative;border-top:2px solid var(--navy);padding-top:12px}.stage-list li+li:before{content:"→";position:absolute;left:-20px;top:6px;color:#617a8c}.stage-list small{color:var(--muted)}.stage-list h3{font-size:18px;margin:5px 0}
+.demo-grid img{aspect-ratio:16/9;object-fit:contain;background:var(--pale)}.demo-grid strong{display:block;color:var(--ink);font-size:18px}
+.gallery-row{margin-top:18px}.gallery-row h3{font-size:18px;margin-bottom:8px}
+.sources{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}.sources img{width:100%;aspect-ratio:16/9;background:var(--pale)}
+.gallery figcaption{text-align:center}.table-area{width:100%}table{width:100%;border-collapse:collapse;line-height:1.35;font-size:16px}th,td{padding:12px 9px;border-bottom:1px solid var(--line);text-align:left}thead{background:var(--pale)}tbody th{font-weight:550}tbody tr:first-child{color:var(--navy);font-weight:650}td span{white-space:nowrap;display:inline-block}.table-area p{margin-top:8px}
+.bench{border-block:1px solid var(--line);padding:10px 0;margin-top:18px}.bench strong{font-size:22px;color:var(--navy)}
+.skip{position:fixed;top:-110px;left:12px;background:white;padding:8px}.skip:focus{top:8px;z-index:2}
+@media(max-width:880px){.wrap{width:calc(100% - 48px)}.hero{gap:26px}.project-layout{grid-template-columns:150px minmax(0,1fr);gap:24px}.stage-list{grid-template-columns:1fr}.stage-list li+li:before{content:none}}
+@media(max-width:680px){body{font-size:16px}.wrap{width:calc(100% - 36px)}header .wrap{padding:14px 0}.brand{gap:8px;font-size:16px}.navrow{gap:12px}.navrow>.navhome,.navrow>.navcontact{display:none}.monogram{width:33px;height:33px;font-size:17px}
+.hero{grid-template-columns:1fr;gap:23px;padding:31px 0 29px}.hero h1{font-size:49px}.hero .identity{font-size:22px}.home-section{padding:27px 0}.projects,.cap-grid,.interests,.contact-grid,.project-layout,.demo-grid{grid-template-columns:1fr}.interests,.cap-grid{gap:19px}.project-body{padding:18px}.project-card .project-card-title{font-size:27px}.projects{gap:20px}
+.timeline li{grid-template-columns:1fr;gap:2px}.project-layout{gap:20px}.side nav{position:static}.side .toc{columns:2;column-gap:13px}.side a{break-inside:avoid;font-size:14px}.project-title h1{font-size:36px}.project-title{padding-top:17px}.project-title .kicker{margin-top:17px}.article-section{padding:24px 0}.article-section h2{font-size:27px}.sources{gap:6px}.stage-list{gap:12px}.gallery figcaption{font-size:14px}
+th,td{padding:9px 3px;font-size:14px}table{table-layout:fixed;overflow-wrap:break-word}table th:first-child{width:28%}thead th:nth-child(2),thead th:nth-child(3){width:13%}.table-area .caption{font-size:14px}.contact-grid{gap:14px}}

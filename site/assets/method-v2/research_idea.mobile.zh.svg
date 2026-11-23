@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="420" height="1090" viewBox="0 0 420 1090" role="img" aria-labelledby="title desc" lang="zh">
+<title id="title">研究思路 · 手机布局</title>
+<desc id="desc">UMI迁移操作知识；Ego是独立且未连接的后续接入节点。</desc>
+<defs><marker id="arrow" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto"><path d="M0 0L10 4L0 8Z" fill="#153d66"/></marker><marker id="supervision" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto"><path d="M0 0L10 4L0 8Z" fill="#b77729"/></marker></defs>
+<rect width="420" height="1090" fill="white"/><g font-family="Segoe UI,Microsoft YaHei,Arial,sans-serif">
+<text id="heading" x="210" y="38" text-anchor="middle" font-size="23" font-weight="650" fill="#192533">研究思路</text>
+<text id="goal" x="210" y="69" text-anchor="middle" font-size="16" font-weight="400" fill="#536173">长期研究目标：Ego + UMI + Robot</text>
+<rect x="20" y="90" width="380" height="275" rx="8" fill="white" stroke="#dce3eb"/>
+<text id="human-title" x="210" y="122" text-anchor="middle" font-size="18" font-weight="600" fill="#192533">低成本人类示范</text>
+<text id="human-subtitle" x="210" y="148" text-anchor="middle" font-size="16" font-weight="400" fill="#536173">（Ego + UMI）</text>
+<polyline id="idea-umi-knowledge" data-from="umi" data-to="knowledge" points="120,265 120,386 210,386 210,410" fill="none" stroke="#153d66" stroke-width="2" marker-end="url(#arrow)"/>
+<polyline id="idea-knowledge-vla" data-from="knowledge" data-to="vla" points="390,453 405,453 405,742 390,742" fill="none" stroke="#153d66" stroke-width="2" marker-end="url(#arrow)"/>
+<polyline id="idea-vla-policy" data-from="vla" data-to="policy" points="210,785 210,860" fill="none" stroke="#153d66" stroke-width="2" marker-end="url(#arrow)"/>
+<polyline id="idea-robot-vla" data-from="robot" data-to="vla" points="210,615 210,700" fill="none" stroke="#b77729" stroke-width="2" marker-end="url(#supervision)"/>
+<g id="umi" data-node-id="umi"><rect x="40" y="165" width="160" height="100" rx="6" fill="#f2f6fb" stroke="#153d66" stroke-width="1.6"/>
+<text id="umi-label-0" x="120.0" y="208.0" text-anchor="middle" font-size="16" font-weight="600" fill="#192533">UMI操作示范</text>
+<text id="umi-label-1" x="120.0" y="234.0" text-anchor="middle" font-size="16" font-weight="400" fill="#192533">当前知识来源</text>
+</g>
+<g id="ego" data-node-id="ego"><rect x="220" y="165" width="160" height="170" rx="6" fill="#f6f7f9" stroke="#7a8490" stroke-width="1.6" stroke-dasharray="7 5"/>
+<text id="ego-label-0" x="300.0" y="217.0" text-anchor="middle" font-size="14" font-weight="600" fill="#536173">Ego视频</text>
+<text id="ego-label-1" x="300.0" y="243.0" text-anchor="middle" font-size="14" font-weight="400" fill="#536173">后续接入</text>
+<text id="ego-label-2" x="300.0" y="269.0" text-anchor="middle" font-size="14" font-weight="400" fill="#536173">数据准备已完成；</text>
+<text id="ego-label-3" x="300.0" y="295.0" text-anchor="middle" font-size="14" font-weight="400" fill="#536173">当前策略未使用</text>
+</g>
+<g id="knowledge" data-node-id="knowledge"><rect x="30" y="410" width="360" height="85" rx="6" fill="#f2f6fb" stroke="#153d66" stroke-width="1.6"/>
+<text id="knowledge-label-0" x="210.0" y="458.5" text-anchor="middle" font-size="18" font-weight="600" fill="#192533">可迁移的操作知识</text>
+</g>
+<g id="vla" data-node-id="vla"><rect x="30" y="700" width="360" height="85" rx="6" fill="#f2f6fb" stroke="#153d66" stroke-width="1.6"/>
+<text id="vla-label-0" x="210.0" y="748.5" text-anchor="middle" font-size="18" font-weight="600" fill="#192533">数据高效VLA后训练</text>
+</g>
+<g id="policy" data-node-id="policy"><rect x="30" y="860" width="360" height="80" rx="6" fill="#eff6f2" stroke="#153d66" stroke-width="1.6"/>
+<text id="policy-label-0" x="210.0" y="906.0" text-anchor="middle" font-size="18" font-weight="600" fill="#192533">人形机器人策略</text>
+</g>
+<g id="robot" data-node-id="robot"><rect x="30" y="540" width="360" height="75" rx="6" fill="#eff6f2" stroke="#153d66" stroke-width="1.6"/>
+<text id="robot-label-0" x="210.0" y="570.5" text-anchor="middle" font-size="18" font-weight="600" fill="#192533">有限且获取成本较高的</text>
+<text id="robot-label-1" x="210.0" y="596.5" text-anchor="middle" font-size="18" font-weight="400" fill="#192533">目标机器人遥操作</text>
+</g>
+<text id="robot-edge-label" x="310" y="658" text-anchor="middle" font-size="16" font-weight="400" fill="#536173">原生动作</text>
+<text id="current-status" x="210" y="985" text-anchor="middle" font-size="17" font-weight="600" fill="#153d66">当前已验证流程：</text>
+<text id="current-status-flow" x="210" y="1014" text-anchor="middle" font-size="16" font-weight="500" fill="#153d66">UMI → 教师／预测器 → 机器人策略</text>
+<text id="flow-legend" x="210" y="1060" text-anchor="middle" font-size="16" font-weight="400" fill="#536173">实线：当前迁移路径</text>
+</g></svg>

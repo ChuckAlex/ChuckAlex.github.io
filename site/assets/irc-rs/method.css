@@ -1,0 +1,72 @@
+/* Scoped IRC-RS principle and implementation figures; no external dependencies. */
+.irc-method { --irc-ink:#192a39; --irc-navy:#153d66; --irc-muted:#465d71; --irc-line:#d5dfe6; --irc-surface:#f5f7fa; color:var(--irc-ink); min-width:0; }
+.irc-method *, .irc-method *::before, .irc-method *::after { box-sizing:border-box; }
+.irc-method p, .irc-method h3, .irc-method h4, .irc-method figure { margin:0; }
+.irc-legend { display:flex; flex-wrap:wrap; gap:8px 22px; list-style:none; padding:0; margin:13px 0 21px; color:var(--irc-muted); font-size:14px; }
+.irc-legend li { display:flex; gap:8px; align-items:center; }
+.irc-legend li>span { display:inline-block; flex-shrink:0; width:19px; height:10px; }
+.irc-legend-robot { background:var(--irc-navy); border-radius:8px; }
+.irc-legend-obstacle { background:#b66b24; border-radius:8px; }
+.irc-legend-field { background:#ffe0b2; border:1px solid #c77c2f; border-radius:50%; }
+.irc-principle-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:22px; align-items:start; }
+.irc-principle-panel { min-width:0; }
+.irc-method .irc-principle-panel h3 { font-family:inherit; font-size:20px; line-height:1.4; font-weight:650; margin-bottom:12px; }
+.irc-scene { width:100%; height:auto; display:block; }
+.irc-method figcaption { color:var(--irc-muted); font-size:15px; line-height:1.6; margin-top:10px; }
+.irc-formula { display:flex; flex-wrap:wrap; column-gap:.28em; align-items:baseline; margin-top:15px; border-block:1px solid var(--irc-line); padding:12px 0; color:var(--irc-navy); font:17px/1.8 Georgia,"Times New Roman",serif; }
+.irc-formula>span { white-space:nowrap; }
+.irc-formula sub, .irc-sum sub { font-size:.72em; }
+.irc-method .irc-sum { display:flex; flex-wrap:wrap; align-items:baseline; gap:6px 16px; color:var(--irc-navy); margin-top:15px; }
+.irc-sum strong { font:600 15px/1.6 "Segoe UI","Microsoft YaHei",Arial,sans-serif; }
+.irc-sum>span { font:18px/1.7 Georgia,"Times New Roman",serif; }
+.irc-math-details { border-top:1px solid var(--irc-line); margin-top:18px; padding-top:8px; }
+.irc-math-details summary { color:var(--irc-navy); cursor:pointer; font-weight:600; min-height:44px; padding-block:10px; }
+.irc-math-details summary:focus-visible { outline:3px solid #236fa8; outline-offset:3px; }
+.irc-math-details dl { margin:10px 0 0; }
+.irc-math-details dl>div { display:grid; grid-template-columns:minmax(120px,.8fr) minmax(0,2.5fr); gap:8px 18px; padding:8px 0; }
+.irc-math-details dt { color:var(--irc-ink); font-weight:600; }
+.irc-math-details dd { margin:0; }
+.irc-method .irc-math-details>p { margin-top:12px; }
+.irc-math-row { margin-top:19px; border-top:1px solid var(--irc-line); padding-top:14px; }
+.irc-method .irc-math-row h4, .irc-method .irc-code-definitions h4 { font-size:16px; line-height:1.5; font-weight:650; }
+.irc-math-row .irc-formula { margin:9px 0; border:0; padding:9px 12px; background:var(--irc-surface); }
+.irc-code-definitions { margin-top:20px; border-top:1px solid var(--irc-line); padding-top:15px; }
+.irc-method .irc-code-definitions p { margin-top:10px; }
+.irc-observation-size { display:flex; flex-wrap:wrap; align-items:baseline; gap:6px 16px; margin:14px 0 12px; }
+.irc-observation-size strong { color:var(--irc-navy); font-size:18px; }
+.irc-observation-size span { color:var(--irc-muted); font-size:15px; line-height:1.6; }
+.irc-training, .irc-inference { margin-top:25px; }
+.irc-method .irc-training>h3, .irc-method .irc-inference>h3 { font-family:inherit; font-size:23px; line-height:1.4; font-weight:650; }
+.irc-method .irc-flow-label { margin-top:15px; font-size:14px; line-height:1.6; font-weight:600; color:var(--irc-muted); }
+.irc-flow { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:23px; margin:12px 0 0; padding:0; list-style:none; }
+.irc-flow-forward { grid-template-columns:repeat(2,minmax(0,1fr)); }
+.irc-flow-feedback, .irc-flow-inference { grid-template-columns:repeat(3,minmax(0,1fr)); }
+.irc-flow-node { position:relative; min-width:0; border:1px solid var(--irc-line); border-top:3px solid var(--irc-navy); padding:15px 13px; background:#fff; }
+.irc-flow-node strong { display:block; font-size:16px; line-height:1.5; font-weight:650; overflow-wrap:break-word; }
+.irc-method .irc-flow-node p { margin-top:7px; color:var(--irc-muted); font-size:15px; line-height:1.65; }
+.irc-flow-node+.irc-flow-node::before { content:"→"; position:absolute; left:-22px; top:22px; width:20px; color:var(--irc-navy); font-size:20px; line-height:1; text-align:center; }
+.irc-feedback-loop { margin-top:19px; border:1px dashed #9baebc; padding:0 14px 14px; background:var(--irc-surface); }
+.irc-feedback-loop .irc-flow-node { border-top-width:1px; }
+.irc-inference { border-top:1px solid var(--irc-line); padding-top:24px; }
+.irc-inference .irc-flow-node { border-top-color:#36745c; background:#f5faf7; }
+.irc-method .irc-flow-caption { margin-top:13px; color:var(--irc-muted); font-size:15px; line-height:1.7; }
+@media(max-width:880px) and (min-width:701px) {
+  .irc-principle-grid { grid-template-columns:1fr; gap:28px; }
+  .irc-principle-panel figure { max-width:450px; }
+  .irc-flow { gap:16px; }
+  .irc-flow-node { padding:12px 9px; }
+  .irc-flow-node+.irc-flow-node::before { left:-16px; width:14px; font-size:17px; }
+}
+@media(max-width:700px) {
+  .irc-principle-grid { grid-template-columns:1fr; gap:28px; }
+  .irc-method .irc-principle-panel h3 { font-size:21px; }
+  .irc-legend { flex-direction:column; gap:8px; }
+  .irc-formula { font-size:18px; }
+  .irc-flow, .irc-flow-forward, .irc-flow-feedback, .irc-flow-inference { grid-template-columns:1fr; gap:25px; }
+  .irc-flow-node { padding:15px; }
+  .irc-flow-node+.irc-flow-node::before { content:"↓"; left:calc(50% - 10px); top:-25px; width:20px; font-size:21px; }
+  .irc-feedback-loop { padding-inline:12px; }
+  .irc-method .irc-training>h3, .irc-method .irc-inference>h3 { font-size:22px; }
+  .irc-sum>span { font-size:17px; }
+  .irc-math-details dl>div { grid-template-columns:1fr; gap:3px; }
+}

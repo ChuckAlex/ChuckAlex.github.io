@@ -1,0 +1,77 @@
+<svg xmlns="http://www.w3.org/2000/svg" xml:lang="en" role="img" aria-labelledby="svg-title svg-desc" viewBox="0 0 360 1830" width="360" height="1830">
+<title id="svg-title">Stage 3 · Guide the VLA with a prior</title>
+<desc id="svg-desc">Robot-native post-training. Six primary modules. Primary model flow, independent visual bypasses, and subordinate training supervision are distinguished.</desc>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 1 L 9 5 L 0 9 z" fill="#5d6c82"/></marker><marker id="sup-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 1 L 9 5 L 0 9 z" fill="#b78c52"/></marker></defs>
+<rect width="100%" height="100%" fill="#ffffff"/>
+<g font-family="Arial,Microsoft YaHei,Noto Sans CJK SC,sans-serif">
+<text x="24" y="34" text-anchor="start" font-size="20" font-weight="600" fill="#26374d" >Stage 3</text>
+<text x="24" y="62" text-anchor="start" font-size="20" font-weight="600" fill="#26374d" >Guide the VLA with a prior</text>
+<text x="24" y="92" text-anchor="start" font-size="16" font-weight="400" fill="#647287" >Robot-native post-training</text>
+<g id="s3-prefix" data-node-id="s3-prefix" data-primary="true" data-kind="compound"><rect x="38" y="710" width="284" height="475" rx="10" fill="#fafbfc" stroke="#8295ad" stroke-width="1.5"/>
+<text x="58" y="740" text-anchor="start" font-size="20" font-weight="600" fill="#26374d" >π0.5 Visual Prefix</text>
+</g>
+<path id="s3-e-views-p" data-from="s3-views" data-to="s3-predictor" data-source="s3-views" data-target="s3-predictor" data-kind="flow" d="M 180 218 L 180 280" fill="none" stroke="#5d6c82" stroke-width="2" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<path id="s3-e-p-adapter" data-from="s3-predictor" data-to="s3-adapter" data-source="s3-predictor" data-target="s3-adapter" data-kind="flow" data-source-port="continuous_prior_3x6d" d="M 180 425 L 180 495" fill="none" stroke="#5d6c82" stroke-width="2" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<path id="s3-e-adapter-projected" data-from="s3-adapter" data-to="s3-projected" data-source="s3-adapter" data-target="s3-projected" data-kind="flow" data-target-port="additive_residual" d="M 322 557 L 342 557 L 342 922 L 297 922" fill="none" stroke="#5d6c82" stroke-width="2" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<path id="s3-e-views-actor" data-from="s3-views" data-to="s3-actor-vision" data-source="s3-views" data-target="s3-actor-vision" data-kind="flow" data-target-port="robot_image_input" d="M 38 174 L 18 174 L 18 812 L 63 812" fill="none" stroke="#5d6c82" stroke-width="2" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<path id="s3-e-actor-projected" data-from="s3-actor-vision" data-to="s3-projected" data-source="s3-actor-vision" data-target="s3-projected" data-kind="internal" data-target-port="projected_visual_features" d="M 180 844 L 180 885" fill="none" stroke="#5d6c82" stroke-width="2" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<path id="s3-e-projected-prefix" data-from="s3-projected" data-to="s3-conditioned" data-source="s3-projected" data-target="s3-conditioned" data-kind="internal" d="M 180 959 L 180 1000" fill="none" stroke="#5d6c82" stroke-width="2" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<path id="s3-e-native-prefix" data-from="s3-native-conditioning" data-to="s3-conditioned" data-source="s3-native-conditioning" data-target="s3-conditioned" data-kind="conditioning" data-target-port="native_conditioning" d="M 63 1125 L 48 1125 L 48 1027 L 63 1027" fill="none" stroke="#5d6c82" stroke-width="2" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<path id="s3-e-prefix-expert" data-from="s3-conditioned" data-to="s3-expert" data-source="s3-conditioned" data-target="s3-expert" data-kind="flow" d="M 297 1027 L 332 1027 L 332 1280 L 322 1280" fill="none" stroke="#5d6c82" stroke-width="2" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<path id="s3-e-expert-actions" data-from="s3-expert" data-to="s3-actions" data-source="s3-expert" data-target="s3-actions" data-kind="flow" data-source-port="sampled_flow" d="M 180 1330 L 180 1400" fill="none" stroke="#5d6c82" stroke-width="2" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<path id="s3-e-targets-fm" data-from="s3-targets" data-to="s3-fm" data-source="s3-targets" data-target="s3-fm" data-kind="supervision" data-source-port="native_action_target" d="M 180 1635 L 180 1685" fill="none" stroke="#b78c52" stroke-width="2" stroke-linejoin="round" marker-end="url(#sup-arrow)"/>
+<path id="s3-e-velocity-fm" data-from="s3-expert" data-to="s3-fm" data-source="s3-expert" data-target="s3-fm" data-kind="supervision" data-source-port="predicted_velocity" d="M 38 1280 L 18 1280 L 18 1722 L 38 1722" fill="none" stroke="#b78c52" stroke-width="2" stroke-linejoin="round" marker-end="url(#sup-arrow)"/>
+<g id="s3-views" data-node-id="s3-views" data-primary="true" data-kind="input"><rect x="38" y="130" width="284" height="88" rx="9" fill="#f2f5f8" stroke="#8b9eb4" stroke-width="1.5"/>
+<text x="180" y="179.5" text-anchor="middle" font-size="20" font-weight="600" fill="#26374d" >Current Robot Views</text>
+</g>
+<g id="s3-predictor" data-node-id="s3-predictor" data-primary="true" data-kind="prior"><rect x="38" y="280" width="284" height="145" rx="9" fill="#eeedf7" stroke="#87769e" stroke-width="1.5"/>
+<text x="180" y="320.5" text-anchor="middle" font-size="20" font-weight="600" fill="#26374d" >Frozen Predictor P</text>
+<text x="180" y="345.5" text-anchor="middle" font-size="18" font-weight="400" fill="#26374d" >Independent frozen vision</text>
+<text x="180" y="370.5" text-anchor="middle" font-size="18" font-weight="400" fill="#26374d" >Continuous Latent-Action</text>
+<text x="180" y="395.5" text-anchor="middle" font-size="18" font-weight="400" fill="#26374d" >Prior · 3 × 6D</text>
+</g>
+<g id="s3-adapter" data-node-id="s3-adapter" data-primary="true" data-kind="model"><rect x="38" y="495" width="284" height="125" rx="9" fill="#f8f9fc" stroke="#788daa" stroke-width="1.5"/>
+<text x="180" y="550.5" text-anchor="middle" font-size="20" font-weight="600" fill="#26374d" >Residual Adapter</text>
+<text x="180" y="575.5" text-anchor="middle" font-size="18" font-weight="400" fill="#26374d" >Output layer zero-init only</text>
+</g>
+<g id="s3-expert" data-node-id="s3-expert" data-primary="true" data-kind="model"><rect x="38" y="1230" width="284" height="100" rx="9" fill="#f8f9fc" stroke="#788daa" stroke-width="1.5"/>
+<text x="180" y="1273" text-anchor="middle" font-size="20" font-weight="600" fill="#26374d" >Action Expert</text>
+<text x="180" y="1298" text-anchor="middle" font-size="18" font-weight="400" fill="#26374d" >Flow velocity prediction</text>
+</g>
+<g id="s3-actions" data-node-id="s3-actions" data-primary="true" data-kind="output"><rect x="38" y="1400" width="284" height="95" rx="9" fill="#f1f5f8" stroke="#8299ad" stroke-width="1.5"/>
+<text x="180" y="1440.5" text-anchor="middle" font-size="20" font-weight="600" fill="#26374d" >Robot-Native Actions</text>
+<text x="180" y="1465.5" text-anchor="middle" font-size="18" font-weight="400" fill="#26374d" >Flow sampling</text>
+</g>
+<g id="s3-actor-vision" data-node-id="s3-actor-vision" data-primary="false" data-kind="internal" data-parent="s3-prefix"><rect x="63" y="780" width="234" height="64" rx="6" fill="#ffffff" stroke="#c5ceda" stroke-width="1.5"/>
+<text x="180" y="819.5" text-anchor="middle" font-size="16" font-weight="600" fill="#26374d" >Actor Vision</text>
+</g>
+<g id="s3-projected" data-node-id="s3-projected" data-primary="false" data-kind="internal" data-parent="s3-prefix"><rect x="63" y="885" width="234" height="74" rx="6" fill="#ffffff" stroke="#c5ceda" stroke-width="1.5"/>
+<text x="180" y="919" text-anchor="middle" font-size="16" font-weight="600" fill="#26374d" >Projected Visual</text>
+<text x="180" y="940" text-anchor="middle" font-size="16" font-weight="400" fill="#26374d" >Tokens ⊕</text>
+</g>
+<g id="s3-conditioned" data-node-id="s3-conditioned" data-primary="false" data-kind="internal" data-parent="s3-prefix"><rect x="63" y="1000" width="234" height="54" rx="6" fill="#ffffff" stroke="#c5ceda" stroke-width="1.5"/>
+<text x="180" y="1024" text-anchor="middle" font-size="16" font-weight="600" fill="#26374d" >Conditioned</text>
+<text x="180" y="1045" text-anchor="middle" font-size="16" font-weight="400" fill="#26374d" >VLM Prefix</text>
+</g>
+<g id="s3-native-conditioning" data-node-id="s3-native-conditioning" data-primary="false" data-kind="conditioning"><rect x="63" y="1090" width="234" height="70" rx="6" fill="#f5f7f9" stroke="#b7c3cf" stroke-width="1.5"/>
+<text x="180" y="1111.5" text-anchor="middle" font-size="16" font-weight="600" fill="#26374d" >Proprioception +</text>
+<text x="180" y="1132.5" text-anchor="middle" font-size="16" font-weight="400" fill="#26374d" >Task Prompt</text>
+<text x="180" y="1153.5" text-anchor="middle" font-size="16" font-weight="400" fill="#26374d" >Native π0.5 conditioning</text>
+</g>
+<g id="s3-targets" data-node-id="s3-targets" data-primary="false" data-kind="supervision"><rect x="38" y="1565" width="284" height="70" rx="6" fill="#fff8ee" stroke="#cfaa73" stroke-width="1.5"/>
+<text x="180" y="1597" text-anchor="middle" font-size="16" font-weight="600" fill="#26374d" >Native Action Targets</text>
+<text x="180" y="1618" text-anchor="middle" font-size="16" font-weight="400" fill="#26374d" >Flow target: ε − a</text>
+</g>
+<g id="s3-fm" data-node-id="s3-fm" data-primary="false" data-kind="supervision"><rect x="38" y="1685" width="284" height="75" rx="6" fill="#fff8ee" stroke="#cfaa73" stroke-width="1.5"/>
+<text x="180" y="1719.5" text-anchor="middle" font-size="16" font-weight="600" fill="#26374d" >Flow-Matching Training</text>
+<text x="180" y="1740.5" text-anchor="middle" font-size="16" font-weight="400" fill="#26374d" >Noisy action xₜ + time t</text>
+</g>
+<text x="180" y="467" text-anchor="middle" font-size="16" font-weight="400" fill="#53647a" paint-order="stroke" stroke="#ffffff" stroke-width="5" stroke-linejoin="round">Stop-grad</text>
+<text x="180" y="668" text-anchor="middle" font-size="16" font-weight="400" fill="#53647a" paint-order="stroke" stroke="#ffffff" stroke-width="5" stroke-linejoin="round">Additive residual</text>
+<text x="180" y="765" text-anchor="middle" font-size="16" font-weight="400" fill="#53647a" paint-order="stroke" stroke="#ffffff" stroke-width="5" stroke-linejoin="round">Independent Actor vision path</text>
+<text x="180" y="1210" text-anchor="middle" font-size="16" font-weight="400" fill="#53647a" paint-order="stroke" stroke="#ffffff" stroke-width="5" stroke-linejoin="round">Prefix / KV</text>
+<text x="180" y="1537" text-anchor="middle" font-size="16" font-weight="400" fill="#53647a" paint-order="stroke" stroke="#ffffff" stroke-width="5" stroke-linejoin="round">Predicted velocity</text>
+<text x="180" y="1800" text-anchor="middle" font-size="16" font-weight="400" fill="#5f6d80" >Train the adapter + eligible Actor</text>
+<text x="180" y="1821" text-anchor="middle" font-size="16" font-weight="400" fill="#5f6d80" >parameters; keep P frozen.</text>
+</g>
+</svg>

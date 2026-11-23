@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" xml:lang="en" role="img" aria-labelledby="svg-title svg-desc" viewBox="0 0 1280 680" width="1280" height="680">
+<title id="svg-title">Stage 1 · Learn latent actions</title>
+<desc id="svg-desc">Multiscale UMI Teacher. Five primary modules. Primary model flow, independent visual bypasses, and subordinate training supervision are distinguished.</desc>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 1 L 9 5 L 0 9 z" fill="#5d6c82"/></marker><marker id="sup-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 1 L 9 5 L 0 9 z" fill="#b78c52"/></marker></defs>
+<rect width="100%" height="100%" fill="#ffffff"/>
+<g font-family="Arial,Microsoft YaHei,Noto Sans CJK SC,sans-serif">
+<text x="40" y="48" text-anchor="start" font-size="26" font-weight="600" fill="#26374d" >Stage 1 · Learn latent actions</text>
+<text x="40" y="84" text-anchor="start" font-size="18" font-weight="400" fill="#647287" >Multiscale UMI Teacher</text>
+<path id="s1-e-umi-teacher" data-from="s1-umi" data-to="s1-teacher" data-source="s1-umi" data-target="s1-teacher" data-kind="flow" d="M 270 290 L 340 290" fill="none" stroke="#5d6c82" stroke-width="2" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<path id="s1-e-teacher-latent" data-from="s1-teacher" data-to="s1-latent" data-source="s1-teacher" data-target="s1-latent" data-kind="flow" d="M 550 290 L 620 290" fill="none" stroke="#5d6c82" stroke-width="2" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<path id="s1-e-latent-fdm" data-from="s1-latent" data-to="s1-fdm" data-source="s1-latent" data-target="s1-fdm" data-kind="flow" d="M 850 290 L 890 290 L 890 230 L 930 230" fill="none" stroke="#5d6c82" stroke-width="2" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<path id="s1-e-latent-motion" data-from="s1-latent" data-to="s1-motion" data-source="s1-latent" data-target="s1-motion" data-kind="flow" d="M 850 290 L 890 290 L 890 475 L 930 475" fill="none" stroke="#5d6c82" stroke-width="2" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<path id="s1-e-current-bypass" data-from="s1-umi" data-to="s1-fdm" data-source="s1-umi" data-target="s1-fdm" data-kind="flow" data-source-port="current_visual_features" data-target-port="current_visual_features" d="M 155 225 L 155 135 L 1065 135 L 1065 170" fill="none" stroke="#5d6c82" stroke-width="2" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<path id="s1-e-fdm-loss" data-from="s1-fdm" data-to="s1-visual-loss" data-source="s1-fdm" data-target="s1-visual-loss" data-kind="supervision" d="M 1065 290 L 1065 325" fill="none" stroke="#b78c52" stroke-width="2" stroke-linejoin="round" marker-end="url(#sup-arrow)"/>
+<path id="s1-e-motion-loss" data-from="s1-motion" data-to="s1-motion-loss" data-source="s1-motion" data-target="s1-motion-loss" data-kind="supervision" d="M 1065 540 L 1065 575" fill="none" stroke="#b78c52" stroke-width="2" stroke-linejoin="round" marker-end="url(#sup-arrow)"/>
+<g id="s1-umi" data-node-id="s1-umi" data-primary="true" data-kind="input"><rect x="40" y="225" width="230" height="130" rx="9" fill="#f2f5f8" stroke="#8b9eb4" stroke-width="1.5"/>
+<text x="155" y="270.5" text-anchor="middle" font-size="20" font-weight="600" fill="#26374d" >UMI Current + Future</text>
+<text x="155" y="295.5" text-anchor="middle" font-size="20" font-weight="600" fill="#26374d" >Views</text>
+<text x="155" y="320.5" text-anchor="middle" font-size="18" font-weight="400" fill="#26374d" >Frozen visual features</text>
+</g>
+<g id="s1-teacher" data-node-id="s1-teacher" data-primary="true" data-kind="model"><rect x="340" y="225" width="210" height="130" rx="9" fill="#f8f9fc" stroke="#788daa" stroke-width="1.5"/>
+<text x="445" y="283" text-anchor="middle" font-size="20" font-weight="600" fill="#26374d" >IDM → FSQ</text>
+<text x="445" y="308" text-anchor="middle" font-size="18" font-weight="400" fill="#26374d" >Two slots per scale</text>
+</g>
+<g id="s1-latent" data-node-id="s1-latent" data-primary="true" data-kind="latent"><rect x="620" y="225" width="230" height="130" rx="9" fill="#f3f0f8" stroke="#9a8aad" stroke-width="1.5"/>
+<text x="735" y="270.5" text-anchor="middle" font-size="20" font-weight="600" fill="#26374d" >Quantized Latent</text>
+<text x="735" y="295.5" text-anchor="middle" font-size="20" font-weight="600" fill="#26374d" >Actions</text>
+<text x="735" y="320.5" text-anchor="middle" font-size="18" font-weight="400" fill="#26374d" >Numeric code vectors</text>
+</g>
+<g id="s1-fdm" data-node-id="s1-fdm" data-primary="true" data-kind="model"><rect x="930" y="170" width="270" height="120" rx="9" fill="#f8f9fc" stroke="#788daa" stroke-width="1.5"/>
+<text x="1065" y="223" text-anchor="middle" font-size="20" font-weight="600" fill="#26374d" >FDM Visual Prediction</text>
+<text x="1065" y="248" text-anchor="middle" font-size="18" font-weight="400" fill="#26374d" >Visual feature change</text>
+</g>
+<g id="s1-motion" data-node-id="s1-motion" data-primary="true" data-kind="model"><rect x="930" y="410" width="270" height="130" rx="9" fill="#f8f9fc" stroke="#788daa" stroke-width="1.5"/>
+<text x="1065" y="443" text-anchor="middle" font-size="20" font-weight="600" fill="#26374d" >Independent Motion</text>
+<text x="1065" y="468" text-anchor="middle" font-size="20" font-weight="600" fill="#26374d" >Head</text>
+<text x="1065" y="493" text-anchor="middle" font-size="18" font-weight="400" fill="#26374d" >Translation · rotation</text>
+<text x="1065" y="518" text-anchor="middle" font-size="18" font-weight="400" fill="#26374d" >Closure change</text>
+</g>
+<g id="s1-visual-loss" data-node-id="s1-visual-loss" data-primary="false" data-kind="supervision"><rect x="930" y="325" width="270" height="60" rx="6" fill="#fff8ee" stroke="#cfaa73" stroke-width="1.5"/>
+<text x="1065" y="352" text-anchor="middle" font-size="16" font-weight="600" fill="#26374d" >Visual Loss</text>
+<text x="1065" y="373" text-anchor="middle" font-size="16" font-weight="400" fill="#26374d" >Target: future − current</text>
+</g>
+<g id="s1-motion-loss" data-node-id="s1-motion-loss" data-primary="false" data-kind="supervision"><rect x="930" y="575" width="270" height="60" rx="6" fill="#fff8ee" stroke="#cfaa73" stroke-width="1.5"/>
+<text x="1065" y="602" text-anchor="middle" font-size="16" font-weight="600" fill="#26374d" >UMI Motion Loss</text>
+<text x="1065" y="623" text-anchor="middle" font-size="16" font-weight="400" fill="#26374d" >Target: tracked motion</text>
+</g>
+<text x="610" y="119" text-anchor="middle" font-size="16" font-weight="400" fill="#53647a" paint-order="stroke" stroke="#ffffff" stroke-width="5" stroke-linejoin="round">Current visual features bypass</text>
+<text x="40" y="475" text-anchor="start" font-size="16" font-weight="400" fill="#5f6d80" >0.25 / 0.5 / 1.0 s · shared Teacher weights</text>
+<text x="40" y="530" text-anchor="start" font-size="16" font-weight="400" fill="#5f6d80" >After training: frozen Teacher exports discrete labels to Stage 2</text>
+</g>
+</svg>
