@@ -19,6 +19,7 @@
 .research-gallery .gallery-title { grid-column:1; margin:1px 0 0; font-size:18px; line-height:1.25; font-weight:600; overflow-wrap:anywhere; }
 .research-gallery .gallery-scene { grid-column:1; margin:2px 0 0; color:var(--muted,#5c6c7a); font-size:14px; line-height:1.5; }
 .research-gallery .gallery-project { grid-column:2; grid-row:1 / span 3; align-self:center; font-size:14px; text-align:right; line-height:1.5; color:var(--navy,#173d59); }
+.research-gallery[data-selected-scene="vla"] .gallery-stage { grid-template-rows:minmax(0,1fr) minmax(120px,max-content); }
 .research-gallery[data-orientation="portrait"] .gallery-stage { grid-template-rows:minmax(0,1fr); grid-template-columns:minmax(0,1fr) 152px; }
 .research-gallery[data-orientation="portrait"] .gallery-detail { display:flex; flex-direction:column; justify-content:center; align-items:flex-start; gap:10px; padding:19px 16px; border-top:0; border-left:1px solid #dce4e7; }
 .research-gallery[data-orientation="portrait"] .gallery-title { font-size:20px; line-height:1.35; }
@@ -62,6 +63,11 @@
  .research-gallery .scene-choice { font-size:13px; }
 }
 @media(prefers-reduced-motion:reduce) { .research-gallery * { scroll-behavior:auto; } }
+
+@media (max-width:960px) {
+ .research-gallery[data-selected-scene="vla"] .gallery-detail { grid-template-columns:minmax(0,1fr); }
+ .research-gallery[data-selected-scene="vla"] .gallery-project { grid-column:1; grid-row:auto; justify-self:start; margin-top:4px; text-align:left; }
+}
 
 /* English scene names retain whole words on narrow screens. Chinese stays in one row. */
 @media (max-width: 680px) {

@@ -59,8 +59,10 @@
       gallery.dataset.orientation = choice.dataset.orientation;
       gallery.querySelector("[data-gallery-index]").textContent = index + 1;
       gallery.querySelector(".gallery-title").textContent = choice.dataset.title;
+      if (choice.dataset.eyebrow) gallery.querySelector(".gallery-eyebrow").textContent = choice.dataset.eyebrow;
       gallery.querySelector(".gallery-scene").textContent = choice.dataset.description;
       const related = gallery.querySelector(".gallery-project");
+      if (choice.dataset.action) related.textContent = choice.dataset.action;
       related.hidden = !choice.dataset.href;
       if (choice.dataset.href) related.setAttribute("href",choice.dataset.href); else related.removeAttribute("href");
       choices.forEach((item,i) => { item.setAttribute("aria-selected",String(i === index)); item.tabIndex = i === index ? 0 : -1; item.removeAttribute("data-active"); });
