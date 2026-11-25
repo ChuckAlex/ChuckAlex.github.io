@@ -84,6 +84,36 @@
   restoreWorkDetails();
   syncAnchors();
 
+  function countPageview() {
+    if (location.origin !== "https://chuckalex.github.io" ||
+        navigator.doNotTrack === "1" || navigator.globalPrivacyControl === true) return;
+
+    // English and Chinese share one report row per research project.
+    const pages = {
+      "page-home": "/",
+      "page-vla": "/projects/heterogeneous-vla/",
+      "page-rl": "/projects/rl-navigation/",
+    };
+    const pageClass = [...document.body.classList].find(name => Object.hasOwn(pages, name));
+    if (!pageClass) return;
+
+    const url = new URL("https://calibration.goatcounter.com/count");
+    url.searchParams.set("p", pages[pageClass]);
+    fetch(url, {
+      mode: "no-cors",
+      credentials: "omit",
+      referrerPolicy: "origin",
+      cache: "no-store",
+      keepalive: true,
+    }).catch(() => {}); // The page remains usable when a blocker or network drops the count.
+  }
+
+  if (document.prerendering) {
+    document.addEventListener("prerenderingchange", countPageview, {once: true});
+  } else {
+    countPageview();
+  }
+
   const recordings = [...document.querySelectorAll(".recording[data-media]")];
   if (!recordings.length) return;
   let currentPlayer = null;
