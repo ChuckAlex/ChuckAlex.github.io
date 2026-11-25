@@ -126,6 +126,7 @@ video.player { display:block; height:auto; object-fit:contain; }
 .recording .frame button[hidden] { display:none; }
 .recording .frame button:focus-visible { outline:3px solid #6eafe2; outline-offset:2px; }
 .recording figcaption { color:var(--ink); font-size:15px; line-height:1.5; overflow-wrap:anywhere; }
+.demo-grid .demo-duration { display:inline-block; white-space:nowrap; }
 .sources .frame button { left:8px; bottom:8px; max-width:calc(100% - 16px); padding:8px 11px; font-size:13px; }
 .article-section > .recording { max-width:790px; margin-top:17px; }
 .demo-grid,.media-pair { align-items:start; }
